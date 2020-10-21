@@ -3,6 +3,7 @@
 
 int main() {
   printft("TEste");
+  printft("TEste");
   login();
   return 0;
 }
