@@ -2,9 +2,6 @@
 #include "./screens/login.c"
 
 int main() {
-  printft("TEste");
-  printf("conflito");
-  printft("TEste");
-  login();
+  LoginScreen();
   return 0;
 }

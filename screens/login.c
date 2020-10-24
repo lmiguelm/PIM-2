@@ -1,6 +1,58 @@
 #include "../headers/login.h"
+#include "./dashboard.c"
+
+
+void cadastro() {
+  char nome[100];
+
+  do {
+    system("cls");
+    printf("\n\n================ Cadastro ================\n");
+    printf("Informe seu nome: ");
+    fflush(stdin);
+    gets(nome);
+    printf("\n\n==================================================\n");
+
+    system("cls");
+    printf("\n\n==================================================\n");
+    printf("Cadastro realizado com sucesso!!");
+    printf("\n\n==================================================\n\n");
+    system("pause");
+    login();
+
+  } while(1==1);
+}
 
 void login() {
+  char email[100], senha[100];
+
+  do {
+    system("cls");
+    printf("\n\n================ Entrar ================\n");
+    printf("Informe seu e-mail: ");
+    fflush(stdin);
+    gets(email);
+
+    printf("Informe sua senha: ");
+    fflush(stdin);
+    gets(email);
+    printf("\n\n==================================================\n");
+
+
+    if(1 == 2) { // senha ou email invalido
+      system("cls");
+      printf("\n\n==================================================\n");
+      printf("Dados incorretos, tente novamente");
+      printf("\n\n==================================================\n\n");
+      system("pause");
+    } else {
+      DashboardScreen(); // dashboard
+    }
+   
+  } while (1 == 1);
+}
+
+void LoginScreen() {
   int option;
 
   do {
@@ -16,11 +68,11 @@ void login() {
     scanf("%d", &option);
 
     switch (option) {
-      case 0: printf("\nSaiu");
+      case 0: exit(0);
               break;
-      case 1: printf("\nlogou");
+      case 1: login();
               break;
-      case 2: printf("\nregistrado");
+      case 2: cadastro();
               break;
       default: printf("\nOpcao invalida!");
     }
