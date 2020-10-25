@@ -3,6 +3,7 @@
 #include "./funcionario.c"
 #include "./feedbacks.c"
 #include "./relatorio.c"
+#include "./medico.c"
 
 void DashboardScreen() {
 
@@ -30,9 +31,9 @@ void DashboardScreen() {
               break;
       case 2: CadastroFuncionario();
               break;
-      case 3: printf("medicos");
+      case 3: MedicoScreen();
               break;
-      case 4: Feedbacks();
+      case 4: FeedbackScreen();
               break;
       case 5: RelatorioScreen();
               break;

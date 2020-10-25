@@ -1,6 +1,6 @@
 #include "../headers/feedbacks.h"
 
-int Feedbacks(){
+int FeedbackScreen(){
 
     char feedback[300];
     int option;
