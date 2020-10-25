@@ -1,6 +1,6 @@
 #include "../headers/paciente.h"
 
-void PacienteScreen() {
+int PacienteScreen() {
   int option;
 
   system("cls");
@@ -9,14 +9,14 @@ void PacienteScreen() {
   printf("\n[2] - Agendar conculta");
   printf("\n[3] - Cancelar consulta");
 
-  printf("\n\n[0] - Sair");
+  printf("\n\n[0] - Voltar");
   printf("\n\n==================================================\n\n");
 
   printf("Digite: ");
   scanf("%d", &option);
 
   switch(option) {
-      case 0: exit(0);
+      case 0: return 0;
               break;
       case 1: printf("cadastrar paciente");
               break;
@@ -25,6 +25,4 @@ void PacienteScreen() {
       case 3: printf("cancelar consulta");
               break;
     }
-    printf("\n\n");
-    system("pause");
 }

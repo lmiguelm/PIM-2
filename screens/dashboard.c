@@ -2,6 +2,7 @@
 #include "./paciente.c"
 #include "./funcionario.c"
 #include "./feedbacks.c"
+#include "./relatorio.c"
 
 void DashboardScreen() {
 
@@ -33,7 +34,7 @@ void DashboardScreen() {
               break;
       case 4: Feedbacks();
               break;
-      case 5: printf("relatorios");
+      case 5: RelatorioScreen();
               break;
       default: printf("Opcao invalida!!");
     }

@@ -1,4 +1,4 @@
-void PacienteScreen();
+int PacienteScreen();
 
 void cadastrar();
 void agendarConsulta();
