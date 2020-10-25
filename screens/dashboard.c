@@ -1,5 +1,6 @@
 #include "../headers/dashboard.h"
 #include "./funcionario.c"
+#include "./feedbacks.c"
 
 void DashboardScreen() {
 
@@ -29,7 +30,7 @@ void DashboardScreen() {
               break;
       case 3: printf("medicos");
               break;
-      case 4: printf("feedbacks");
+      case 4: Feedbacks();
               break;
       case 5: printf("relatorios");
               break;
