@@ -1,4 +1,5 @@
 #include "../headers/dashboard.h"
+#include "./paciente.c"
 
 void DashboardScreen() {
 
@@ -22,7 +23,7 @@ void DashboardScreen() {
     switch(option) {
       case 0: exit(0);
               break;
-      case 1: printf("pacientes");
+      case 1: PacienteScreen();
               break;
       case 2: printf("funcionarios");
               break;
