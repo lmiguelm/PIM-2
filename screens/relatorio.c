@@ -1,4 +1,4 @@
-#include "../headers/relatorio.h"
+#include "../headers/screens/relatorio.h"
 
 void pacientesPorUnidade() {
   printf("Pacientes por unidade");

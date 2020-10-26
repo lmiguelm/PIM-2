@@ -1,4 +1,4 @@
-#include "../headers/dashboard.h"
+#include "../headers/screens/dashboard.h"
 #include "./paciente.c"
 #include "./funcionario.c"
 #include "./feedbacks.c"

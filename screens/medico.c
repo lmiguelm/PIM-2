@@ -1,4 +1,4 @@
-#include "../headers/medico.h"
+#include "../headers/screens/medico.h"
 
 int MedicoScreen() {
   char nome[100];
