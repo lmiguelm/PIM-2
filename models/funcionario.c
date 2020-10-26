@@ -10,7 +10,7 @@ int salvarFuncionario(char nome[100], char sobrenome[100], char cpf[11], char em
     return 1;
   } 
 
-  fprintf(ponteiro_arq, "nome: %s, sobrenome: %s, cpf: %s, email: %s, senha: %s \n", nome, sobrenome, cpf, email, senha);
+  fprintf(ponteiro_arq, "%s %s %s %s %s \n", nome, sobrenome, cpf, email, senha);
   fclose(ponteiro_arq);
   return 0;
 }
