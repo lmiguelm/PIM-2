@@ -1,4 +1,5 @@
 #include "../headers/screens/medico.h"
+#include "../util/bool.h"
 
 int MedicoScreen() {
   char nome[100];
@@ -20,5 +21,5 @@ int MedicoScreen() {
 
     return 0;
     
-  } while(1==1);
+  } while(true);
 }

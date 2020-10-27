@@ -1,4 +1,5 @@
 #include "../headers/screens/relatorio.h"
+#include "../util/bool.h"
 
 void pacientesPorUnidade() {
   printf("Pacientes por unidade");
@@ -42,5 +43,5 @@ int RelatorioScreen() {
     printf("\n\n");
     system("pause");
 
-  } while( 1 == 1);
+  } while(true);
 }

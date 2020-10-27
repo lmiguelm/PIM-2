@@ -1,4 +1,5 @@
 #include "../headers/screens/feedbacks.h"
+#include "../util/bool.h"
 
 int FeedbackScreen(){
 
@@ -21,5 +22,5 @@ int FeedbackScreen(){
 
         return 0;
 
-    } while(1==1);
+    } while(true);
 }

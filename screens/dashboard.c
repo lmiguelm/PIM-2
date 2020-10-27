@@ -4,6 +4,7 @@
 #include "./feedbacks.c"
 #include "./relatorio.c"
 #include "./medico.c"
+#include "../util/bool.h"
 
 void DashboardScreen() {
 
@@ -42,5 +43,5 @@ void DashboardScreen() {
     printf("\n\n");
     system("pause");
 
-  } while (1 == 1);
+  } while (true);
 }

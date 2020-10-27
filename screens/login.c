@@ -1,5 +1,6 @@
 #include "../headers/screens/login.h"
 #include "./dashboard.c"
+#include "../util/bool.h"
 
 
 void cadastro() {
@@ -49,7 +50,7 @@ void login() {
       DashboardScreen(); // dashboard
     }
    
-  } while (1 == 1);
+  } while (true);
 }
 
 void LoginScreen() {

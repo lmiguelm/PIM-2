@@ -1,5 +1,6 @@
 #include "../headers/screens/funcionario.h"
 #include "../models/funcionario.c"
+#include "../util/bool.h"
 
 int CadastroFuncionario(){
 
@@ -44,5 +45,5 @@ int CadastroFuncionario(){
         printf("\n\n==================================================\n\n");
         system("pause");
       }
-  } while(1==1);
+  } while(true);
 }
