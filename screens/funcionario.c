@@ -1,5 +1,4 @@
 #include "../headers/screens/funcionario.h"
-#include "../models/funcionario.c"
 #include "../util/bool.h"
 
 int CadastroFuncionario(){
@@ -32,18 +31,18 @@ int CadastroFuncionario(){
 
       printf("\n\n==================================================\n");
 
-      if(salvarFuncionario(nome, sobrenome, cpf, email, senha) == 0) {
-        system("cls");
-        printf("\n\n==================================================\n");
-        printf("Cadastro realizado com sucesso!!");
-        printf("\n\n==================================================\n\n");
-        return 0;
-      } else {
-        system("cls");
-        printf("\n\n==================================================\n");
-        printf("Ops! Não conseguimos realizar seu cadastro. Tente novamente");
-        printf("\n\n==================================================\n\n");
-        system("pause");
-      }
+      // if(salvarFuncionario(nome, sobrenome, cpf, email, senha) == 0) {
+      //   system("cls");
+      //   printf("\n\n==================================================\n");
+      //   printf("Cadastro realizado com sucesso!!");
+      //   printf("\n\n==================================================\n\n");
+      //   return 0;
+      // } else {
+      //   system("cls");
+      //   printf("\n\n==================================================\n");
+      //   printf("Ops! Não conseguimos realizar seu cadastro. Tente novamente");
+      //   printf("\n\n==================================================\n\n");
+      //   system("pause");
+      // }
   } while(true);
 }

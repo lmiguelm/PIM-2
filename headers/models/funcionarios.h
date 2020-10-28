@@ -1,1 +1,0 @@
-int salvarFuncionario(char nome[100], char sobrenome[100], char cpf[11], char email[100], char senha[100]);
