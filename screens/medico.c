@@ -1,4 +1,4 @@
-#include "../headers/screens/medico.h"
+#include "../headers/medico.h"
 #include "../util/bool.h"
 
 int MedicoScreen() {

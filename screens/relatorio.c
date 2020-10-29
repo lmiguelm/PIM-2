@@ -1,4 +1,4 @@
-#include "../headers/screens/relatorio.h"
+#include "../headers/relatorio.h"
 #include "../util/bool.h"
 
 void pacientesPorUnidade() {

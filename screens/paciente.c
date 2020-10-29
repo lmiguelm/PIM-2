@@ -1,4 +1,4 @@
-#include "../headers/screens/paciente.h"
+#include "../headers/paciente.h"
 
 int PacienteScreen() {
   int option;

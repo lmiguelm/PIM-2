@@ -1,4 +1,4 @@
-#include "../headers/screens/dashboard.h"
+#include "../headers/dashboard.h"
 #include "./paciente.c"
 #include "./funcionario.c"
 #include "./feedbacks.c"
@@ -7,9 +7,8 @@
 #include "../util/bool.h"
 
 void DashboardScreen() {
-
-  int option;
-
+	int option;
+	
   do {
     system("cls");
     printf("\n\n================ Painel de controle ================\n");
@@ -30,7 +29,7 @@ void DashboardScreen() {
               break;
       case 1: PacienteScreen();
               break;
-      case 2: CadastroFuncionario();
+      case 2: FuncionarioScreen();
               break;
       case 3: MedicoScreen();
               break;
@@ -40,6 +39,7 @@ void DashboardScreen() {
               break;
       default: printf("Opcao invalida!!");
     }
+
     printf("\n\n");
     system("pause");
 

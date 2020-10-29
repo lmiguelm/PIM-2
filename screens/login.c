@@ -1,4 +1,4 @@
-#include "../headers/screens/login.h"
+#include "../headers/login.h"
 #include "./dashboard.c"
 #include "../util/bool.h"
 
