@@ -12,7 +12,7 @@ void insertArrayPaciente(ArrayDePacientes *a, Paciente element) {
   a->arrayDePacientes[a->used++] = element;
 }
 
-void freeArray(ArrayDePacientes *a) {
+void freeArrayPaciente(ArrayDePacientes *a) {
   free(a->arrayDePacientes);
   a->arrayDePacientes = NULL;
   a->used = a->size = 0;
