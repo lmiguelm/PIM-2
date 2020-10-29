@@ -14,6 +14,10 @@ void DashboardScreen() {
   ArrayDePacientes pacientes;
   initArrayPaciente(&pacientes);
 
+  Medico medico;
+	ArrayDeMedicos medicos;
+  initArrayMedico(&medicos);
+
   do {
     system("cls");
     printf("\n\n================ Painel de controle ================\n");
@@ -29,20 +33,32 @@ void DashboardScreen() {
     printf("Digite: ");
     scanf("%d", &option);
 
-		// FALTA AS OUTRAS OPÇÕES ....
-    if(option == 1) {
+		if(option == 1) {
       paciente = PacienteScreen();
       insertArrayPaciente(&pacientes, paciente);
-    }
+    } else if(option == 2) {
+			medico = MedicoScreen();
+      insertArrayMedico(&medicos, medico);
+    } else if(option == 3) {
+			medico = MedicoScreen();
+      insertArrayMedico(&medicos, medico);
+    } else if(option == 4) {
+			printf("Feedbacks...");
+    } else if(option == 5) {
+			printf("Relatorios...");
+		} else if(option == 0){
+			printf("hushuashuahsudh");
+		} else {
+			printf("Opcao invalida!");
+		}
 
 
 		// APENAS PARA TESTAR SE REALMENTE SALVOU NO PONTEIRO...
-    for(int i = 0; i < pacientes.used; i++) {
-      printf("\nnome: %s\n", pacientes.arrayDePacientes[i].nome);
-      printf("\nsobrenome: %s\n", pacientes.arrayDePacientes[i].sobrenome);
-      printf("\nsexo: %s\n", pacientes.arrayDePacientes[i].sexo);
-      printf("\ncpf: %s\n", pacientes.arrayDePacientes[i].cpf);
-      printf("\nidade: %d\n", pacientes.arrayDePacientes[i].idade);
+    for(int i = 0; i < medicos.used; i++) {
+      printf("\nnome: %s\n", medicos.arrayDeMedicos[i].nome);
+      printf("\nsobrenome: %s\n", medicos.arrayDeMedicos[i].sobrenome);
+      printf("\nespecialidade: %s\n", medicos.arrayDeMedicos[i].especialidade);
+      printf("\ncrm: %d\n", medicos.arrayDeMedicos[i].crm);
       printf("\n");
     }
 

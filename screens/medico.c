@@ -1,25 +1,29 @@
 #include "../headers/medico.h"
-#include "../util/bool.h"
+#include "../models/medico.c"
 
-int MedicoScreen() {
-  char nome[100];
+Medico MedicoScreen() {
+  
+  Medico medico;
 
-  do {
-    system("cls");
-    printf("\n\n================ Cadastro ================\n");
+  system("cls");
+  printf("\n\n================ Cadastro de Medico ================\n");
 
-    printf("Informe seu nome: ");
-    fflush(stdin);
-    gets(nome);
-    
-    printf("\n\n==================================================\n");
+  printf("Informe o nome: ");
+  fflush(stdin);
+  gets(medico.nome);
 
-    system("cls");
-    printf("\n\n==================================================\n");
-    printf("Cadastro realizado com sucesso!!");
-    printf("\n\n==================================================\n\n");
+  printf("Informe o sobrenome: ");
+  fflush(stdin);
+  gets(medico.sobrenome);
 
-    return 0;
-    
-  } while(true);
+  printf("Informe a especialidade: ");
+  fflush(stdin);
+  gets(medico.especialidade);
+
+  printf("Informe o numero da CRM: ");
+  fflush(stdin);
+  scanf("%d", &medico.crm);
+  printf("\n\n==================================================\n");
+
+  return medico;
 }
