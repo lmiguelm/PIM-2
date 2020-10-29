@@ -1,0 +1,13 @@
+typedef struct {
+  char nome[100];
+  char sobrenome[100];
+  char sexo[20];
+  int idade;
+  char cpf[100];
+} Paciente;
+
+typedef struct {
+  Paciente *arrayDePacientes;
+  size_t used;
+  size_t size;
+} ArrayDePacientes;
