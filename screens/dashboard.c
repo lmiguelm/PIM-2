@@ -49,7 +49,10 @@ void DashboardScreen() {
     } else if (option == 3) {
       FuncionarioScreen();
     } else if (option == 4) {
-      printf("Listar funcionarios");
+      system("cls");
+      printf("\n\n================ Funcionarios Cadastrados ================\n");
+      listarFuncionarios(recuperarFuncionarios());
+      printf("\n\n======================================================\n\n");
     } else if (option == 5) {
       MedicoScreen();
     } else if (option == 6) {

@@ -1,18 +1,19 @@
 void initArrayMedico(ArrayDeMedicos *a) {
-  a->arrayDeMedicos = malloc(1 * sizeof(Medico));
-  a->used = 0;
-  a->size = 1;
+  a->arrayDeMedicos = malloc(1 * sizeof(Medico));  // ALOCANDO ESPAÇO NA MEMÓRIA PARA O VALOR INICIAL DO ARRAY
+  a->used = 0; // SETANDO O VALOR DO TAMANHO USADO
+  a->size = 1; // SETANDO O TAMANHO ALOCADO
 }
 
 void insertArrayMedico(ArrayDeMedicos *a, Medico element) {
-  if (a->used == a->size) {
-    a->size *= 2;
-    a->arrayDeMedicos = realloc(a->arrayDeMedicos, a->size * sizeof(Medico));
+  if (a->used == a->size) { // VERIFICA SE O TAMANHO QUE ESTA SENDO USADO É IGUAL AO TAMANHO ALOCADO
+    a->size *= 2;  // DUPLICANDO O TAMANHO
+    a->arrayDeMedicos = realloc(a->arrayDeMedicos, a->size * sizeof(Medico)); // REALOCANDO O TAMANHO PARA O DOBRO DO ANTERIOR
   }
-  a->arrayDeMedicos[a->used++] = element;
+  a->arrayDeMedicos[a->used++] = element; // INSERINDO O ELEMENTO NO ARRAY
 }
 
 void FreeArrayMedico(ArrayDeMedicos *a) {
+  // LIMPANDO
   free(a->arrayDeMedicos);
   a->arrayDeMedicos = NULL;
   a->used = a->size = 0;
@@ -20,23 +21,23 @@ void FreeArrayMedico(ArrayDeMedicos *a) {
 
 int salvarMedico(Medico medico) {
   FILE *ponteiro_qtd; // CRIANDO PONTEIRO FILE
-  ponteiro_qtd = fopen("./database/medicos/quantidade.txt", "r"); // APONTANDO PARA O ARQUIVO DE QUANTIDADE DE PACIENTES NO MODO DE LEITURA
+  ponteiro_qtd = fopen("./database/medicos/quantidade.txt", "r"); // APONTANDO PARA O ARQUIVO DE QUANTIDADE DE MEDICOS NO MODO DE LEITURA
  
   FILE *ponteiro_arq; // CRIANDO PONTEIRO FILE
-  ponteiro_arq = fopen("./database/medicos/medicos.txt", "a");// APONTANDO PARA O ARQUIVO  PACIENTES NO MODO APPEND, ONDE ADICIONARÁ UMA NOVA LINHA NO CONTEUDO JÁ EXISTENTE
+  ponteiro_arq = fopen("./database/medicos/medicos.txt", "a");// APONTANDO PARA O ARQUIVO  MEDICOS NO MODO APPEND, ONDE ADICIONARÁ UMA NOVA LINHA NO CONTEUDO JÁ EXISTENTE
 
   if(ponteiro_arq == NULL || ponteiro_qtd == NULL) { // VERIFICANDO SE OS PONTEIROS NÃO APONTARAM PARA OS ARQUIVOS
     printf("Erro na arbertura do arquivo");
     return 1; // CASO NÃO, RETORNA 1 COMO ERRO
   } 
 
-  // SALVANDO UM NOVO PACIENTE
+  // SALVANDO UM NOVO MEDICO
   fprintf(ponteiro_arq, "%s %s %s %d \n", medico.nome, medico.sobrenome, medico.especialidade, medico.crm);
   fclose(ponteiro_arq);
 
-  // INCREMENTANDO O NUMERO DE PACIENTES DE 1 EM 1
+  // INCREMENTANDO O NUMERO DE MEDICOS DE 1 EM 1
   int quantidade;
-  fscanf(ponteiro_qtd, "%d", &quantidade); // LENDO O ARQUIVO DE QUANTIDADE DE PACIENTES E ARMAZENANDO O VALOR NA VARIAVEL 'QUANTIDADE'
+  fscanf(ponteiro_qtd, "%d", &quantidade); // LENDO O ARQUIVO DE QUANTIDADE DE MEDICOS E ARMAZENANDO O VALOR NA VARIAVEL 'QUANTIDADE'
   ponteiro_qtd = fopen("./database/medicos/quantidade.txt", "w"); // APONTANDO PARA O MESMO ARQUIVO DE QUANTIDADE, MAS COM O MODO DE ESCRITA, AONDE ELE SOBRESCREVE O VALOR JÁ EXISTENTE POR UM NOVO
   fprintf(ponteiro_qtd, "%d", quantidade+1); // SALVANDO O NOVO VALOR NO ARQUIVO
   fclose(ponteiro_qtd);
@@ -47,20 +48,20 @@ int salvarMedico(Medico medico) {
 ArrayDeMedicos recuperarMedicos() {
   FILE *ponteiro_arq, *ponteiro_qtd; // CRIANDO PONTEIRO FILE
 
-  ponteiro_arq = fopen("./database/medicos/medicos.txt", "r"); // APONTANDO PARA O ARQUIVO DE PACIENTES NO MODO DE LEITURA
-  ponteiro_qtd = fopen("./database/medicos/quantidade.txt", "r"); // APONTANDO PARA O ARQUIVO DE QUANTIDADE DE PACIENTES NO MODO DE LEITURA
+  ponteiro_arq = fopen("./database/medicos/medicos.txt", "r"); // APONTANDO PARA O ARQUIVO DE MEDICOS NO MODO DE LEITURA
+  ponteiro_qtd = fopen("./database/medicos/quantidade.txt", "r"); // APONTANDO PARA O ARQUIVO DE QUANTIDADE DE MEDICOS NO MODO DE LEITURA
 
   int quantidade;
-  fscanf(ponteiro_qtd, "%d", &quantidade); // RECUPERANDO A QUANTIDADE DE PACIENTES EXISTENTES
+  fscanf(ponteiro_qtd, "%d", &quantidade); // RECUPERANDO A QUANTIDADE DE MEDICOS EXISTENTES
 
-  Medico medico; // STRUCT DE PACIENTE
-  ArrayDeMedicos medicos; // ARRAY DINAMICO DE PACIENTES
+  Medico medico; // STRUCT DE MEDICO
+  ArrayDeMedicos medicos; // ARRAY DINAMICO DE MEDICOS
   initArrayMedico(&medicos); // INICIANDO O ARRAY EM 1
 
-  for(int i = 0; i < quantidade; i++) { // PERCORRENDO DE 0 ATÉ A QUANTIDADE DE PACIENTES
-    // LENDO OS DADOS DOS PACIENTES..
+  for(int i = 0; i < quantidade; i++) { // PERCORRENDO DE 0 ATÉ A QUANTIDADE DE MEDICOS
+    // LENDO OS DADOS DOS MEDICOS..
     fscanf(ponteiro_arq, "%s %s %s %d", &medico.nome, &medico.sobrenome, &medico.especialidade, &medico.crm);
-    // INSERINDO CADA PACIENTE EM UMA POSIÇÃO DO ARRAY DINÂMICO
+    // INSERINDO CADA MEDICO EM UMA POSIÇÃO DO ARRAY DINÂMICO
     insertArrayMedico(&medicos, medico);
   }
 
