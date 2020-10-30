@@ -1,2 +1,0 @@
-nome: Luis, sobrenome: Miguel, cpf: 503.945.858-44, sexo: Masculino, idade: 19 
-nome: Davi, sobrenome: Freitas, cpf: 123.582.234-15, sexo: Masculino, idade: 19 
