@@ -14,6 +14,10 @@ void DashboardScreen() {
   ArrayDePacientes pacientes;
   initArrayPaciente(&pacientes);
 
+  Funcionario funcionario;
+  ArrayDeFuncionarios funcionarios;
+  initArrayFuncionario(&funcionarios);
+
   Medico medico;
 	ArrayDeMedicos medicos;
   initArrayMedico(&medicos);
@@ -37,8 +41,8 @@ void DashboardScreen() {
       paciente = PacienteScreen();
       insertArrayPaciente(&pacientes, paciente);
     } else if(option == 2) {
-			medico = MedicoScreen();
-      insertArrayMedico(&medicos, medico);
+			funcionario = FuncionarioScreen();
+      insertArrayFuncionario(&funcionarios, funcionario);
     } else if(option == 3) {
 			medico = MedicoScreen();
       insertArrayMedico(&medicos, medico);
@@ -54,11 +58,12 @@ void DashboardScreen() {
 
 
 		// APENAS PARA TESTAR SE REALMENTE SALVOU NO PONTEIRO...
-    for(int i = 0; i < medicos.used; i++) {
-      printf("\nnome: %s\n", medicos.arrayDeMedicos[i].nome);
-      printf("\nsobrenome: %s\n", medicos.arrayDeMedicos[i].sobrenome);
-      printf("\nespecialidade: %s\n", medicos.arrayDeMedicos[i].especialidade);
-      printf("\ncrm: %d\n", medicos.arrayDeMedicos[i].crm);
+   for(int i = 0; i < funcionarios.used; i++) {
+      printf("\nnome: %s\n", funcionarios.arrayDeFuncionarios[i].nome);
+      printf("\nsobrenome: %s\n", funcionarios.arrayDeFuncionarios[i].sobrenome);
+      printf("\ncpf: %s\n", funcionarios.arrayDeFuncionarios[i].cpf);
+      printf("\nemail: %s\n", funcionarios.arrayDeFuncionarios[i].email);
+      printf("\nsenha: %s\n", funcionarios.arrayDeFuncionarios[i].senha);
       printf("\n");
     }
 

@@ -2,7 +2,7 @@ typedef struct {
   char nome[100];
   char email[100];
   char senha[100];
-  char cpf[11];
+  char cpf[100];
   char sobrenome[100];
 } Funcionario;
 

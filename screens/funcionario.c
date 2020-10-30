@@ -1,12 +1,13 @@
 #include "../headers/funcionario.h"
+#include "../models/funcionario.c"
 #include "../util/bool.h"
 
-int FuncionarioScreen(){
+Funcionario FuncionarioScreen(){
   
   Funcionario funcionario;
   
   system("cls");
-  printf("\n\n================ Cadastro ================\n");
+  printf("\n\n================ Cadastro de funcionario ================\n");
 
   printf("Informe seu nome: ");
   fflush(stdin);
@@ -30,5 +31,5 @@ int FuncionarioScreen(){
 
   printf("\n\n==================================================\n");
 
-  return 0;
+  return funcionario;
 }

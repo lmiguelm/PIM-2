@@ -1,3 +1,7 @@
 #include "../structs/funcionario.h"
 
-int FuncionarioScreen();
+Funcionario FuncionarioScreen();
+
+void initArrayFuncionario(ArrayDeFuncionarios *a);
+void insertArrayFuncionario(ArrayDeFuncionarios *a, Funcionario element);
+void FreeArrayFuncionario(ArrayDeFuncionarios *a);
