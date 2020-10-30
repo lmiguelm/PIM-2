@@ -10,16 +10,6 @@ void DashboardScreen() {
 
 	int option;
 
-  ArrayDePacientes pacientes;
-
-  Funcionario funcionario;
-  ArrayDeFuncionarios funcionarios;
-  initArrayFuncionario(&funcionarios);
-
-  Medico medico;
-	ArrayDeMedicos medicos;
-  initArrayMedico(&medicos);
-
   do {
     system("cls");
     printf("\n\n================ Painel de controle ================\n");
@@ -42,24 +32,30 @@ void DashboardScreen() {
 		if(option == 1) {
       PacienteScreen();
     } else if (option == 2) {
+
       system("cls");
       printf("\n\n================ Pacientes Cadastrados ================\n");
       listarPacientes(recuperarPacientes());
       printf("\n\n======================================================\n\n");
+
     } else if (option == 3) {
       FuncionarioScreen();
     } else if (option == 4) {
+
       system("cls");
       printf("\n\n================ Funcionarios Cadastrados ================\n");
       listarFuncionarios(recuperarFuncionarios());
       printf("\n\n======================================================\n\n");
+
     } else if (option == 5) {
       MedicoScreen();
     } else if (option == 6) {
+
       system("cls");
       printf("\n\n================ Medicos Cadastrados ================\n");
       listarMedicos(recuperarMedicos());
       printf("\n\n======================================================\n\n");
+
     } else if (option == 7) {
       FeedbackScreen();
     } else if (option == 8) {
@@ -71,17 +67,6 @@ void DashboardScreen() {
     } else {
       printf("Opcao invalida!");
     }
-
-
-		// APENAS PARA TESTAR SE REALMENTE SALVOU NO PONTEIRO...
-  //  for(int i = 0; i < funcionarios.used; i++) {
-  //     printf("\nnome: %s\n", funcionarios.arrayDeFuncionarios[i].nome);
-  //     printf("\nsobrenome: %s\n", funcionarios.arrayDeFuncionarios[i].sobrenome);
-  //     printf("\ncpf: %s\n", funcionarios.arrayDeFuncionarios[i].cpf);
-  //     printf("\nemail: %s\n", funcionarios.arrayDeFuncionarios[i].email);
-  //     printf("\nsenha: %s\n", funcionarios.arrayDeFuncionarios[i].senha);
-  //     printf("\n");
-  //   }
 
     printf("\n\n");
     system("pause");

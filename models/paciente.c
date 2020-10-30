@@ -42,6 +42,10 @@ int salvarPaciente(Paciente paciente) {
   fprintf(ponteiro_qtd, "%d", quantidade+1); // SALVANDO O NOVO VALOR NO ARQUIVO
   fclose(ponteiro_qtd);
 
+  // LIMPANDO PONTEIRO
+  free(ponteiro_qtd);
+  free(ponteiro_arq);
+
   return 0; // RETORNO CASO TUDO TENHA OCORRIDO COMO ESPERADO
 }
 
@@ -65,6 +69,10 @@ ArrayDePacientes recuperarPacientes() {
     insertArrayPaciente(&pacientes, paciente);
   }
 
+  // LIMPANDO PONTEIRO
+  free(ponteiro_arq);
+  free(ponteiro_qtd);
+
   return pacientes;
 }
 
@@ -78,4 +86,5 @@ void listarPacientes(ArrayDePacientes array) {
     printf("\nIdade: %d", array.arrayDePacientes[i].idade);
     printf("\n--------------------------------------------------\n");
   }
+  freeArrayPaciente(&array);
 }

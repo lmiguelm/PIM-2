@@ -42,6 +42,10 @@ int salvarMedico(Medico medico) {
   fprintf(ponteiro_qtd, "%d", quantidade+1); // SALVANDO O NOVO VALOR NO ARQUIVO
   fclose(ponteiro_qtd);
 
+  // LIMPANDO PONTEIRO
+  free(ponteiro_qtd);
+  free(ponteiro_arq);
+
   return 0; // RETORNO CASO TUDO TENHA OCORRIDO COMO ESPERADO
 }
 
@@ -65,6 +69,10 @@ ArrayDeMedicos recuperarMedicos() {
     insertArrayMedico(&medicos, medico);
   }
 
+  // LIMPANDO PONTEIRO
+  free(ponteiro_arq);
+  free(ponteiro_qtd);
+
   return medicos;
 }
 
@@ -77,4 +85,5 @@ void listarMedicos(ArrayDeMedicos array) {
     printf("\nCRM: %d", array.arrayDeMedicos[i].crm);
     printf("\n--------------------------------------------------\n");
   }
+  FreeArrayMedico(&array);
 }

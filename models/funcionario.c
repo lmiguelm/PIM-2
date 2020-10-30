@@ -42,6 +42,10 @@ int salvarFuncionario(Funcionario funcionario) {
   fprintf(ponteiro_qtd, "%d", quantidade+1); // SALVANDO O NOVO VALOR NO ARQUIVO
   fclose(ponteiro_qtd);
 
+  // LIMPANDO PONTEIRO
+  free(ponteiro_qtd);
+  free(ponteiro_arq);
+
   return 0; // RETORNO CASO TUDO TENHA OCORRIDO COMO ESPERADO
 }
 
@@ -65,6 +69,10 @@ ArrayDeFuncionarios recuperarFuncionarios() {
     insertArrayFuncionario(&funcionarios, funcionario);
   }
 
+  // LIMPANDO PONTEIRO
+  free(ponteiro_arq);
+  free(ponteiro_qtd);
+
   return funcionarios;
 }
 
@@ -77,4 +85,5 @@ void listarFuncionarios(ArrayDeFuncionarios array) {
     printf("\nE-mail: %d", array.arrayDeFuncionarios[i].email);
     printf("\n--------------------------------------------------\n");
   }
+  FreeArrayFuncionario(&array);
 }
