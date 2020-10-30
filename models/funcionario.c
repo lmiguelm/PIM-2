@@ -82,8 +82,19 @@ void listarFuncionarios(ArrayDeFuncionarios array) {
     printf("\nNome: %s", array.arrayDeFuncionarios[i].nome);
     printf("\nSobrenome: %s", array.arrayDeFuncionarios[i].sobrenome);
     printf("\nCPF: %s", array.arrayDeFuncionarios[i].cpf);
-    printf("\nE-mail: %d", array.arrayDeFuncionarios[i].email);
+    printf("\nE-mail: %s", array.arrayDeFuncionarios[i].email);
     printf("\n--------------------------------------------------\n");
   }
   FreeArrayFuncionario(&array);
+}
+
+int validarLogin(char email[100], char senha[100]) {
+  ArrayDeFuncionarios f = recuperarFuncionarios();
+  
+  for(int i = 0; i < f.used; i++) {
+    if (strcmp(email, f.arrayDeFuncionarios[i].email) == 0 && strcmp(senha, f.arrayDeFuncionarios[i].senha) == 0) {
+      return 0;
+    }
+  }
+  return 1;
 }

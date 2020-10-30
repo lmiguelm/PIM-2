@@ -14,11 +14,11 @@ void login() {
 
     printf("Informe sua senha: ");
     fflush(stdin);
-    gets(email);
+    gets(senha);
     printf("\n\n==================================================\n");
 
 
-    if(1 == 2) { // senha ou email invalido
+    if(validarLogin(email, senha) != 0) { // senha ou email invalido
       system("cls");
       printf("\n\n==================================================\n");
       printf("Dados incorretos, tente novamente");
