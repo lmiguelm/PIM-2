@@ -53,7 +53,10 @@ void DashboardScreen() {
     } else if (option == 5) {
       MedicoScreen();
     } else if (option == 6) {
-      printf("listar medicos");
+      system("cls");
+      printf("\n\n================ Medicos Cadastrados ================\n");
+      listarMedicos(recuperarMedicos());
+      printf("\n\n======================================================\n\n");
     } else if (option == 7) {
       FeedbackScreen();
     } else if (option == 8) {
