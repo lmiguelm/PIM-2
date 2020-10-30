@@ -38,8 +38,7 @@ void DashboardScreen() {
     scanf("%d", &option);
 
 		if(option == 1) {
-      paciente = PacienteScreen();
-      insertArrayPaciente(&pacientes, paciente);
+      PacienteScreen();
     } else if(option == 2) {
 			funcionario = FuncionarioScreen();
       insertArrayFuncionario(&funcionarios, funcionario);

@@ -1,6 +1,8 @@
 #include "../structs/paciente.h"
 
-Paciente PacienteScreen();
+void PacienteScreen();
+
+int salvarPaciente(Paciente element);
 
 void initArrayPaciente(ArrayDePacientes *a);
 void insertArrayPaciente(ArrayDePacientes *a, Paciente element);
