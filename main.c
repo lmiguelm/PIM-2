@@ -2,7 +2,6 @@
 #include<string.h>
 #include "./screens/login.c"
 
-int main() {
+void main() {
   LoginScreen();
-  return 0;
 }

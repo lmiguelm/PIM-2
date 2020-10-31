@@ -21,10 +21,10 @@ void FreeArrayFeedbacks(ArrayDeFeedbacks *a) {
 
 int salvarFeedback(Feedback feedback) {
   FILE *ponteiro_qtd; // CRIANDO PONTEIRO FILE
-  ponteiro_qtd = fopen("./database/feedbacks/quantidade.txt", "r"); // APONTANDO PARA O ARQUIVO DE QUANTIDADE DE FUNCIONARIOS NO MODO DE LEITURA
+  ponteiro_qtd = fopen("./database/feedbacks/quantidade.txt", "r"); // APONTANDO PARA O ARQUIVO DE QUANTIDADE DE FEEDBACKS NO MODO DE LEITURA
  
   FILE *ponteiro_arq; // CRIANDO PONTEIRO FILE
-  ponteiro_arq = fopen("./database/feedbacks/feedbacks.txt", "a");// APONTANDO PARA O ARQUIVO  FUNCIONARIOS NO MODO APPEND, ONDE ADICIONARÁ UMA NOVA LINHA NO CONTEUDO JÁ EXISTENTE
+  ponteiro_arq = fopen("./database/feedbacks/feedbacks.txt", "a");// APONTANDO PARA O ARQUIVO  FEEDBACKS NO MODO APPEND, ONDE ADICIONARÁ UMA NOVA LINHA NO CONTEUDO JÁ EXISTENTE
 
   if(ponteiro_arq == NULL || ponteiro_qtd == NULL) { // VERIFICANDO SE OS PONTEIROS NÃO APONTARAM PARA OS ARQUIVOS
     printf("Erro na arbertura do arquivo");
@@ -34,9 +34,9 @@ int salvarFeedback(Feedback feedback) {
   fprintf(ponteiro_arq, "%d %s\n", feedback.avaliacao, feedback.mensagem);
   fclose(ponteiro_arq);
 
-  // INCREMENTANDO O NUMERO DE FUNCIONARIOS DE 1 EM 1
+  // INCREMENTANDO O NUMERO DE FEEDBACKS DE 1 EM 1
   int quantidade;
-  fscanf(ponteiro_qtd, "%d", &quantidade); // LENDO O ARQUIVO DE QUANTIDADE DE FUNCIONARIOS E ARMAZENANDO O VALOR NA VARIAVEL 'QUANTIDADE'
+  fscanf(ponteiro_qtd, "%d", &quantidade); // LENDO O ARQUIVO DE QUANTIDADE DE FEEDBACKS E ARMAZENANDO O VALOR NA VARIAVEL 'QUANTIDADE'
   ponteiro_qtd = fopen("./database/feedbacks/quantidade.txt", "w"); // APONTANDO PARA O MESMO ARQUIVO DE QUANTIDADE, MAS COM O MODO DE ESCRITA, AONDE ELE SOBRESCREVE O VALOR JÁ EXISTENTE POR UM NOVO
   fprintf(ponteiro_qtd, "%d", quantidade+1); // SALVANDO O NOVO VALOR NO ARQUIVO
   fclose(ponteiro_qtd);
@@ -51,20 +51,21 @@ int salvarFeedback(Feedback feedback) {
 ArrayDeFeedbacks recuperarFeedbacks() {
   FILE *ponteiro_arq, *ponteiro_qtd; // CRIANDO PONTEIRO FILE
 
-  ponteiro_arq = fopen("./database/feedbacks/feedbacks.txt", "r"); // APONTANDO PARA O ARQUIVO DE FUNCIONARIOS NO MODO DE LEITURA
-  ponteiro_qtd = fopen("./database/feedbacks/quantidade.txt", "r"); // APONTANDO PARA O ARQUIVO DE QUANTIDADE DE FUNCIONARIOS NO MODO DE LEITURA
+  ponteiro_arq = fopen("./database/feedbacks/feedbacks.txt", "r"); // APONTANDO PARA O ARQUIVO DE FEEDBACKS NO MODO DE LEITURA
+  ponteiro_qtd = fopen("./database/feedbacks/quantidade.txt", "r"); // APONTANDO PARA O ARQUIVO DE QUANTIDADE DE FEEDBACKS NO MODO DE LEITURA
 
   int quantidade;
-  fscanf(ponteiro_qtd, "%d", &quantidade); // RECUPERANDO A QUANTIDADE DE FUNCIONARIOS EXISTENTES
+  fscanf(ponteiro_qtd, "%d", &quantidade); // RECUPERANDO A QUANTIDADE DE FEEDBACKS EXISTENTES
 
-  Feedback feedback; // STRUCT DE FUNCIONARIO
-  ArrayDeFeedbacks feedbacks; // ARRAY DINAMICO DE FUNCIONARIOS
+  Feedback feedback; // STRUCT DE FEEDBACK
+  ArrayDeFeedbacks feedbacks; // ARRAY DINAMICO DE FEEDBACKS
   initArrayFeedbacks(&feedbacks); // INICIANDO O ARRAY EM 1
 
-  for(int i = 0; i < quantidade; i++) { // PERCORRENDO DE 0 ATÉ A QUANTIDADE DE FUNCIONARIOS
-    // LENDO OS DADOS DOS FUNCIONARIOS..
-    fscanf(ponteiro_arq, "%d %s", &feedback.avaliacao, &feedback.mensagem);
-    // INSERINDO CADA FUNCIONARIO EM UMA POSIÇÃO DO ARRAY DINÂMICO
+  for(int i = 0; i < quantidade; i++) { // PERCORRENDO DE 0 ATÉ A QUANTIDADE DE FEEDBACKS
+    // LENDO OS DADOS DOS FEEDBACKS..
+    fscanf(ponteiro_arq, "%d", &feedback.avaliacao);
+    fgets(feedback.mensagem, 500, ponteiro_arq);
+    // INSERINDO CADA FEEDBACK EM UMA POSIÇÃO DO ARRAY DINÂMICO
     insertArrayFeedbacks(&feedbacks,feedback);
   }
 
