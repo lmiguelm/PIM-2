@@ -1,7 +1,7 @@
 #include "../headers/dashboard.h"
 #include "./paciente.c"
 #include "./funcionario.c"
-#include "./feedbacks.c"
+#include "./feedback.c"
 #include "./relatorio.c"
 #include "./medico.c"
 #include "../util/bool.h"
@@ -59,7 +59,10 @@ void DashboardScreen() {
     } else if (option == 7) {
       FeedbackScreen();
     } else if (option == 8) {
-      printf("listar feedbacks");
+      system("cls");
+      printf("\n\n================ Feedbacks Cadastrados ================\n");
+      listarFeedbacks(recuperarFeedbacks());
+      printf("\n\n======================================================\n\n");
     } else if (option == 9) {
       RelatorioScreen();
     } else if (option == 0) {
