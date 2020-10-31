@@ -2,7 +2,7 @@
 #include "../models/medico.c"
 #include "../util/bool.h"
 
-void MedicoScreen() {
+void cadastrarM() {
   
   Medico medico;
 
@@ -40,5 +40,41 @@ void MedicoScreen() {
       printf("\n\n==================================================\n\n");
       system("pause");
     }
+  } while(true);
+}
+
+void listarM() {
+  system("cls");
+  printf("\n\n================ Medicos Cadastrados ================\n");
+  listarMedicos(recuperarMedicos());
+  printf("\n\n======================================================\n\n");
+}
+
+void MedicoScreen() {
+  int option;
+
+  do {
+    system("cls");
+    printf("\n\n================ Medico ================\n");
+    printf("\n[1] - Cadastrar Medico");
+    printf("\n[2] - Listar Medicos");
+    printf("\n\n[0] - Voltar");
+    printf("\n\n==================================================\n\n");
+
+    printf("Digite: ");
+    scanf("%d", &option);
+
+    switch(option) {
+      case 1: cadastrarM();
+              break;
+      case 2: listarM();
+              break;
+      case 0: return;
+              break;
+      default: printf("Opcao invalida");
+    }
+    printf("\n\n");
+    system("pause");
+
   } while(true);
 }

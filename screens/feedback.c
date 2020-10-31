@@ -2,7 +2,7 @@
 #include "../util/bool.h"
 #include "../models/feedback.c"
 
-void FeedbackScreen(){
+void cadastrarFed(){
 
     Feedback feedback;
 
@@ -89,4 +89,40 @@ void FeedbackScreen(){
         // return 0;
 
     } while(true);
+}
+
+void listarFed() {
+  system("cls");
+  printf("\n\n================ Feedbacks Cadastrados ================\n");
+  listarFeedbacks(recuperarFeedbacks());
+  printf("\n\n======================================================\n\n");
+}
+
+void FeedbackScreen() {
+  int option;
+
+  do {
+    system("cls");
+    printf("\n\n================ Feedback ================\n");
+    printf("\n[1] - Cadastrar Feedback");
+    printf("\n[2] - Listar Feedbacks");
+    printf("\n\n[0] - Voltar");
+    printf("\n\n==================================================\n\n");
+
+    printf("Digite: ");
+    scanf("%d", &option);
+
+    switch(option) {
+      case 1: cadastrarFed();
+              break;
+      case 2: listarFed();
+              break;
+      case 0: return;
+              break;
+      default: printf("Opcao invalida");
+    }
+    printf("\n\n");
+    system("pause");
+
+  } while(true);
 }

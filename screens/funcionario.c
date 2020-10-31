@@ -2,7 +2,7 @@
 #include "../models/funcionario.c"
 #include "../util/bool.h"
 
-void FuncionarioScreen(){
+void cadastrarF(){
   
   Funcionario funcionario;
   
@@ -45,5 +45,41 @@ void FuncionarioScreen(){
     }
 
     printf("\n\n==================================================\n");
+  } while(true);
+}
+
+void listarF() {
+  system("cls");
+  printf("\n\n================ Funcionarios Cadastrados ================\n");
+  listarFuncionarios(recuperarFuncionarios());
+  printf("\n\n======================================================\n\n");
+}
+
+void FuncionarioScreen() {
+  int option;
+
+  do {
+    system("cls");
+    printf("\n\n================ Funcionario ================\n");
+    printf("\n[1] - Cadastrar Funcionario");
+    printf("\n[2] - Listar Funcionarios");
+    printf("\n\n[0] - Voltar");
+    printf("\n\n==================================================\n\n");
+
+    printf("Digite: ");
+    scanf("%d", &option);
+
+    switch(option) {
+      case 1: cadastrarF();
+              break;
+      case 2: listarF();
+              break;
+      case 0: return;
+              break;
+      default: printf("Opcao invalida");
+    }
+    printf("\n\n");
+    system("pause");
+
   } while(true);
 }

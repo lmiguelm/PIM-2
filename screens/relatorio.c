@@ -2,7 +2,7 @@
 #include "../util/bool.h"
 
 void pacientesPorUnidade() {
-  printf("Pacientes por unidade");
+  listarFuncionarios(recuperarFuncionarios());
 }
 
 void unidadeQueMaisAtende() {

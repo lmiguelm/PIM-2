@@ -2,7 +2,7 @@
 #include "../models/paciente.c"
 #include "../util/bool.h"
 
-void PacienteScreen() {
+void cadastrarP() {
 
 	Paciente paciente;
 
@@ -43,6 +43,42 @@ void PacienteScreen() {
       printf("\n\n==================================================\n\n");
       system("pause");
     }
+
+  } while(true);
+}
+
+void listarP() {
+  system("cls");
+  printf("\n\n================ Pacientes Cadastrados ================\n");
+  listarPacientes(recuperarPacientes());
+  printf("\n\n======================================================\n\n");
+}
+
+void PacienteScreen() {
+  int option;
+
+  do {
+    system("cls");
+    printf("\n\n================ Pacientes ================\n");
+    printf("\n[1] - Cadastrar Paciente");
+    printf("\n[2] - Listar Pacientes");
+    printf("\n\n[0] - Voltar");
+    printf("\n\n==================================================\n\n");
+
+    printf("Digite: ");
+    scanf("%d", &option);
+
+    switch(option) {
+      case 1: cadastrarP();
+              break;
+      case 2: listarP();
+              break;
+      case 0: return;
+              break;
+      default: printf("Opcao invalida");
+    }
+    printf("\n\n");
+    system("pause");
 
   } while(true);
 }
