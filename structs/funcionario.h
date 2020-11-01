@@ -1,4 +1,5 @@
 typedef struct {
+  int unidade;
   char nome[100];
   char email[100];
   char senha[100];

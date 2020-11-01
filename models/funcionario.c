@@ -22,7 +22,7 @@ void FreeArrayFuncionario(ArrayDeFuncionarios *a) {
 int salvarFuncionario(Funcionario funcionario) {
   FILE *ponteiro_qtd; // CRIANDO PONTEIRO FILE
   ponteiro_qtd = fopen("./database/funcionarios/quantidade.txt", "r"); // APONTANDO PARA O ARQUIVO DE QUANTIDADE DE FUNCIONARIOS NO MODO DE LEITURA
- 
+  
   FILE *ponteiro_arq; // CRIANDO PONTEIRO FILE
   ponteiro_arq = fopen("./database/funcionarios/funcionarios.txt", "a");// APONTANDO PARA O ARQUIVO  FUNCIONARIOS NO MODO APPEND, ONDE ADICIONARÁ UMA NOVA LINHA NO CONTEUDO JÁ EXISTENTE
 
@@ -31,8 +31,11 @@ int salvarFuncionario(Funcionario funcionario) {
     return 1; // CASO NÃO, RETORNA 1 COMO ERRO
   } 
 
+  // RECUPERANDO UNIDADE ATUAL
+  int unidade = recuperarUnidadeAtual();
+
   // SALVANDO UM NOVO FUNCIONARIO
-  fprintf(ponteiro_arq, "%s %s %s %s %s \n", funcionario.nome, funcionario.sobrenome, funcionario.cpf, funcionario.email, funcionario.senha);
+  fprintf(ponteiro_arq, "%d %s %s %s %s %s \n", unidade, funcionario.nome, funcionario.sobrenome, funcionario.cpf, funcionario.email, funcionario.senha);
   fclose(ponteiro_arq);
 
   // INCREMENTANDO O NUMERO DE FUNCIONARIOS DE 1 EM 1
@@ -62,11 +65,17 @@ ArrayDeFuncionarios recuperarFuncionarios() {
   ArrayDeFuncionarios funcionarios; // ARRAY DINAMICO DE FUNCIONARIOS
   initArrayFuncionario(&funcionarios); // INICIANDO O ARRAY EM 1
 
+  // RECUPERANDO UNIDADE ATUAL
+  int unidade = recuperarUnidadeAtual();
+
   for(int i = 0; i < quantidade; i++) { // PERCORRENDO DE 0 ATÉ A QUANTIDADE DE FUNCIONARIOS
     // LENDO OS DADOS DOS FUNCIONARIOS..
-    fscanf(ponteiro_arq, "%s %s %s %s %s", &funcionario.nome, &funcionario.sobrenome, &funcionario.cpf, &funcionario.email, &funcionario.senha);
-    // INSERINDO CADA FUNCIONARIO EM UMA POSIÇÃO DO ARRAY DINÂMICO
-    insertArrayFuncionario(&funcionarios, funcionario);
+    fscanf(ponteiro_arq, "%d %s %s %s %s %s", &funcionario.unidade, &funcionario.nome, &funcionario.sobrenome, &funcionario.cpf, &funcionario.email, &funcionario.senha);
+
+    if(funcionario.unidade == unidade) {
+      // INSERINDO CADA FUNCIONARIO EM UMA POSIÇÃO DO ARRAY DINÂMICO
+      insertArrayFuncionario(&funcionarios, funcionario);
+    }
   }
 
   // LIMPANDO PONTEIRO
@@ -79,6 +88,7 @@ ArrayDeFuncionarios recuperarFuncionarios() {
 void listarFuncionarios(ArrayDeFuncionarios array) {
   for(int i = 0; i < array.used; i++) {
     printf("\n--------------------------------------------------");
+    printf("\nUnidade: %d", array.arrayDeFuncionarios[i].unidade);
     printf("\nNome: %s", array.arrayDeFuncionarios[i].nome);
     printf("\nSobrenome: %s", array.arrayDeFuncionarios[i].sobrenome);
     printf("\nCPF: %s", array.arrayDeFuncionarios[i].cpf);
@@ -90,9 +100,10 @@ void listarFuncionarios(ArrayDeFuncionarios array) {
 
 int validarLogin(char email[100], char senha[100]) {
   ArrayDeFuncionarios f = recuperarFuncionarios();
+  int unidade = recuperarUnidadeAtual();
   
   for(int i = 0; i < f.used; i++) {
-    if (strcmp(email, f.arrayDeFuncionarios[i].email) == 0 && strcmp(senha, f.arrayDeFuncionarios[i].senha) == 0) {
+    if (strcmp(email, f.arrayDeFuncionarios[i].email) == 0 && strcmp(senha, f.arrayDeFuncionarios[i].senha) == 0 && f.arrayDeFuncionarios[i].unidade == unidade) {
       return 0;
     }
   }

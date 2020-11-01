@@ -40,14 +40,14 @@ void LoginScreen() {
     printf("\n[1] - Entrar no sistema");
     printf("\n[2] - Registre-se");
 
-    printf("\n\n[0] - Sair");
+    printf("\n\n[0] - Voltar");
     printf("\n\n==================================================\n\n");
 
     printf("\nDigite: ");
     scanf("%d", &option);
 
     switch (option) {
-      case 0: exit(0);
+      case 0: return;
               break;
       case 1: login();
               break;
