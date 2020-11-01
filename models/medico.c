@@ -70,7 +70,7 @@ ArrayDeMedicos recuperarMedicos() {
 
   for(int i = 0; i < quantidade; i++) { // PERCORRENDO DE 0 ATÉ A QUANTIDADE DE MEDICOS
     // LENDO OS DADOS DOS MEDICOS..
-    fscanf(ponteiro_arq, "%s %s %s %d", &medico.nome, &medico.sobrenome, &medico.especialidade, &medico.crm);
+    fscanf(ponteiro_arq, "%d %s %s %s %d", &medico.unidade, &medico.nome, &medico.sobrenome, &medico.especialidade, &medico.crm);
 
     if(medico.unidade == unidade) { 
       // INSERINDO CADA MEDICO EM UMA POSIÇÃO DO ARRAY DINÂMICO

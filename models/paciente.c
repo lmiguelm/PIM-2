@@ -70,7 +70,7 @@ ArrayDePacientes recuperarPacientes() {
 
   for(int i = 0; i < quantidade; i++) { // PERCORRENDO DE 0 ATÉ A QUANTIDADE DE PACIENTES
     // LENDO OS DADOS DOS PACIENTES..
-    fscanf(ponteiro_arq, "%s %s %s %s %d", &paciente.nome, &paciente.sobrenome, &paciente.cpf, &paciente.sexo, &paciente.idade);
+    fscanf(ponteiro_arq, "%d %s %s %s %s %d", &paciente.unidade, &paciente.nome, &paciente.sobrenome, &paciente.cpf, &paciente.sexo, &paciente.idade);
 
     if(paciente.unidade == unidade) { 
       // INSERINDO CADA PACIENTE EM UMA POSIÇÃO DO ARRAY DINÂMICO
