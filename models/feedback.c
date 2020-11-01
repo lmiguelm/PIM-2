@@ -31,7 +31,10 @@ int salvarFeedback(Feedback feedback) {
     return 1; // CASO NÃO, RETORNA 1 COMO ERRO
   } 
 
-  fprintf(ponteiro_arq, "%d %s\n", feedback.avaliacao, feedback.mensagem);
+  // RECUPERANDO UNIDADE ATUAL
+  int unidade = recuperarUnidadeAtual();
+
+  fprintf(ponteiro_arq, "%d %d %s\n", unidade, feedback.avaliacao, feedback.mensagem);
   fclose(ponteiro_arq);
 
   // INCREMENTANDO O NUMERO DE FEEDBACKS DE 1 EM 1
@@ -61,12 +64,19 @@ ArrayDeFeedbacks recuperarFeedbacks() {
   ArrayDeFeedbacks feedbacks; // ARRAY DINAMICO DE FEEDBACKS
   initArrayFeedbacks(&feedbacks); // INICIANDO O ARRAY EM 1
 
+  // RECUPERANDO UNIDADE ATUAL
+  int unidade = recuperarUnidadeAtual();
+
   for(int i = 0; i < quantidade; i++) { // PERCORRENDO DE 0 ATÉ A QUANTIDADE DE FEEDBACKS
     // LENDO OS DADOS DOS FEEDBACKS..
+    fscanf(ponteiro_arq, "%d", &feedback.unidade);
     fscanf(ponteiro_arq, "%d", &feedback.avaliacao);
     fgets(feedback.mensagem, 500, ponteiro_arq);
-    // INSERINDO CADA FEEDBACK EM UMA POSIÇÃO DO ARRAY DINÂMICO
-    insertArrayFeedbacks(&feedbacks,feedback);
+
+    if(feedback.unidade == unidade) { 
+      // INSERINDO CADA FEEDBACK EM UMA POSIÇÃO DO ARRAY DINÂMICO
+      insertArrayFeedbacks(&feedbacks,feedback);
+    }
   }
 
   // LIMPANDO PONTEIRO
@@ -79,6 +89,7 @@ ArrayDeFeedbacks recuperarFeedbacks() {
 void listarFeedbacks(ArrayDeFeedbacks array) {
   for(int i = 0; i < array.used; i++) {
     printf("\n--------------------------------------------------");
+    printf("\nUnidade: %d", array.arrayDeFeedbacks[i].unidade);
     printf("\nAvaliacao: %d", array.arrayDeFeedbacks[i].avaliacao);
     printf("\nMensagem: %s", array.arrayDeFeedbacks[i].mensagem);
     printf("\n--------------------------------------------------\n");
