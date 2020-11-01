@@ -12,7 +12,7 @@ void main() {
     printf("\n[1] - Unidade I");
     printf("\n[2] - Unidade II");
     printf("\n[3] - Unidade III");
-    printf("\n\n[0] - Sair");
+    printf("\n\n[0] - Fechar");
     printf("\n\n==================================================\n\n");
 
     printf("Escolha sua unidade: ");

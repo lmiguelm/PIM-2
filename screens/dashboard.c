@@ -38,7 +38,7 @@ void DashboardScreen() {
               break;
       case 6: RelatorioScreen();
               break;
-      case 0: exit(0);
+      case 0: return;
               break;
       default: printf("Opcao invalida!");
     }

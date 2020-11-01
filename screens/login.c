@@ -4,6 +4,7 @@
 
 void login() {
   char email[100], senha[100];
+  int option;
 
   do {
     system("cls");
@@ -20,12 +21,19 @@ void login() {
 
     if(validarLogin(email, senha) != 0) { // senha ou email invalido
       system("cls");
-      printf("\n\n==================================================\n");
-      printf("Dados incorretos, tente novamente");
-      printf("\n\n==================================================\n\n");
-      system("pause");
+      printf("\n\n===================== Dados incorretos =============================\n");
+      printf("\n[1] - Tentar novamente");
+      printf("\n[0] - Voltar");
+      printf("\n\n====================================================================\n\n");
+      printf("\nDigite uma opcao: ");
+      scanf("%d", &option);
+
+      if(option == 0) {
+        return;
+      }
     } else {
       DashboardScreen(); // dashboard
+      return;
     }
    
   } while (true);
