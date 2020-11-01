@@ -31,8 +31,6 @@ void cadastrarP() {
     printf("\n\n==================================================\n");
 
     if(salvarPaciente(paciente) == 0) {
-      system("cls");
-      printf("\n\n==================================================\n");
       printf("%s cadastrado com sucesso!", paciente.nome);
       printf("\n\n==================================================\n\n");
       return;
@@ -47,11 +45,20 @@ void cadastrarP() {
   } while(true);
 }
 
-void listarP() {
+void listarPacientes(ArrayDePacientes array) {
   system("cls");
-  printf("\n\n================ Pacientes Cadastrados ================\n");
-  listarPacientes(recuperarPacientes());
+  printf("\n\n================ Pacientes Cadastrados - Unidade %d ================\n", array.arrayDePacientes[0].unidade);
+  for(int i = 0; i < array.used; i++) {
+    printf("\n--------------------------------------------------");
+    printf("\nNome: %s", array.arrayDePacientes[i].nome);
+    printf("\nSobrenome: %s", array.arrayDePacientes[i].sobrenome);
+    printf("\nCPF: %s", array.arrayDePacientes[i].cpf);
+    printf("\nSexo: %s", array.arrayDePacientes[i].sexo);
+    printf("\nIdade: %d", array.arrayDePacientes[i].idade);
+    printf("\n--------------------------------------------------\n");
+  }
   printf("\n\n======================================================\n\n");
+  freeArrayPaciente(&array);
 }
 
 void PacienteScreen() {
@@ -71,7 +78,7 @@ void PacienteScreen() {
     switch(option) {
       case 1: cadastrarP();
               break;
-      case 2: listarP();
+      case 2: listarPacientes(recuperarPacientes());
               break;
       case 0: return;
               break;

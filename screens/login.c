@@ -59,7 +59,7 @@ void LoginScreen() {
               break;
       case 1: login();
               break;
-      case 2: FuncionarioScreen();
+      case 2: cadastrarF();
               break;
       default: printf("\nOpcao invalida!");
     }

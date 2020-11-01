@@ -85,19 +85,6 @@ ArrayDeFuncionarios recuperarFuncionarios() {
   return funcionarios;
 }
 
-void listarFuncionarios(ArrayDeFuncionarios array) {
-  for(int i = 0; i < array.used; i++) {
-    printf("\n--------------------------------------------------");
-    printf("\nUnidade: %d", array.arrayDeFuncionarios[i].unidade);
-    printf("\nNome: %s", array.arrayDeFuncionarios[i].nome);
-    printf("\nSobrenome: %s", array.arrayDeFuncionarios[i].sobrenome);
-    printf("\nCPF: %s", array.arrayDeFuncionarios[i].cpf);
-    printf("\nE-mail: %s", array.arrayDeFuncionarios[i].email);
-    printf("\n--------------------------------------------------\n");
-  }
-  FreeArrayFuncionario(&array);
-}
-
 int validarLogin(char email[100], char senha[100]) {
   ArrayDeFuncionarios f = recuperarFuncionarios();
   int unidade = recuperarUnidadeAtual();

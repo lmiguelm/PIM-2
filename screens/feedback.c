@@ -91,11 +91,17 @@ void cadastrarFed(){
     } while(true);
 }
 
-void listarFed() {
+void listarFeedbacks(ArrayDeFeedbacks array) {
   system("cls");
-  printf("\n\n================ Feedbacks Cadastrados ================\n");
-  listarFeedbacks(recuperarFeedbacks());
+  printf("\n\n================ Feedbacks Cadastrados - Unidade %d ================\n", array.arrayDeFeedbacks[0].unidade);
+  for(int i = 0; i < array.used; i++) {
+    printf("\n--------------------------------------------------");
+    printf("\nAvaliacao: %d", array.arrayDeFeedbacks[i].avaliacao);
+    printf("\nMensagem: %s", array.arrayDeFeedbacks[i].mensagem);
+    printf("\n--------------------------------------------------\n");
+  }
   printf("\n\n======================================================\n\n");
+  FreeArrayFeedbacks(&array);
 }
 
 void FeedbackScreen() {
@@ -115,7 +121,7 @@ void FeedbackScreen() {
     switch(option) {
       case 1: cadastrarFed();
               break;
-      case 2: listarFed();
+      case 2: listarFeedbacks(recuperarFeedbacks());
               break;
       case 0: return;
               break;

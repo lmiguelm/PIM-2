@@ -86,13 +86,3 @@ ArrayDeFeedbacks recuperarFeedbacks() {
   return feedbacks;
 }
 
-void listarFeedbacks(ArrayDeFeedbacks array) {
-  for(int i = 0; i < array.used; i++) {
-    printf("\n--------------------------------------------------");
-    printf("\nUnidade: %d", array.arrayDeFeedbacks[i].unidade);
-    printf("\nAvaliacao: %d", array.arrayDeFeedbacks[i].avaliacao);
-    printf("\nMensagem: %s", array.arrayDeFeedbacks[i].mensagem);
-    printf("\n--------------------------------------------------\n");
-  }
-  FreeArrayFeedbacks(&array);
-}

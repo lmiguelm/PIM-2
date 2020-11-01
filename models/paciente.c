@@ -85,16 +85,3 @@ ArrayDePacientes recuperarPacientes() {
   return pacientes;
 }
 
-void listarPacientes(ArrayDePacientes array) {
-  for(int i = 0; i < array.used; i++) {
-    printf("\n--------------------------------------------------");
-    printf("\nUnidade: %d", array.arrayDePacientes[i].unidade);
-    printf("\nNome: %s", array.arrayDePacientes[i].nome);
-    printf("\nSobrenome: %s", array.arrayDePacientes[i].sobrenome);
-    printf("\nCPF: %s", array.arrayDePacientes[i].cpf);
-    printf("\nSexo: %s", array.arrayDePacientes[i].sexo);
-    printf("\nIdade: %d", array.arrayDePacientes[i].idade);
-    printf("\n--------------------------------------------------\n");
-  }
-  freeArrayPaciente(&array);
-}

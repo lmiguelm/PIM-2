@@ -48,11 +48,19 @@ void cadastrarF(){
   } while(true);
 }
 
-void listarF() {
+void listarFuncionarios(ArrayDeFuncionarios array) {
   system("cls");
-  printf("\n\n================ Funcionarios Cadastrados ================\n");
-  listarFuncionarios(recuperarFuncionarios());
+  printf("\n\n================ Funcionarios Cadastrados - Unidade %d ================\n", array.arrayDeFuncionarios[0].unidade);
+  for(int i = 0; i < array.used; i++) {
+    printf("\n--------------------------------------------------");
+    printf("\nNome: %s", array.arrayDeFuncionarios[i].nome);
+    printf("\nSobrenome: %s", array.arrayDeFuncionarios[i].sobrenome);
+    printf("\nCPF: %s", array.arrayDeFuncionarios[i].cpf);
+    printf("\nE-mail: %s", array.arrayDeFuncionarios[i].email);
+    printf("\n--------------------------------------------------\n");
+  }
   printf("\n\n======================================================\n\n");
+  FreeArrayFuncionario(&array);
 }
 
 void FuncionarioScreen() {
@@ -72,7 +80,7 @@ void FuncionarioScreen() {
     switch(option) {
       case 1: cadastrarF();
               break;
-      case 2: listarF();
+      case 2: listarFuncionarios(recuperarFuncionarios());
               break;
       case 0: return;
               break;

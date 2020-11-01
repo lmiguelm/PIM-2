@@ -85,15 +85,3 @@ ArrayDeMedicos recuperarMedicos() {
   return medicos;
 }
 
-void listarMedicos(ArrayDeMedicos array) {
-  for(int i = 0; i < array.used; i++) {
-    printf("\n--------------------------------------------------");
-    printf("\nUnidade: %d", array.arrayDeMedicos[i].unidade);
-    printf("\nNome: %s", array.arrayDeMedicos[i].nome);
-    printf("\nSobrenome: %s", array.arrayDeMedicos[i].sobrenome);
-    printf("\nEspecialidade: %s", array.arrayDeMedicos[i].especialidade);
-    printf("\nCRM: %d", array.arrayDeMedicos[i].crm);
-    printf("\n--------------------------------------------------\n");
-  }
-  FreeArrayMedico(&array);
-}
