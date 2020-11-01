@@ -31,8 +31,11 @@ int salvarPaciente(Paciente paciente) {
     return 1; // CASO NÃO, RETORNA 1 COMO ERRO
   } 
 
+  // RECUPERANDO UNIDADE ATUAL
+  int unidade = recuperarUnidadeAtual();
+
   // SALVANDO UM NOVO PACIENTE
-  fprintf(ponteiro_arq, "%s %s %s %s %d \n", paciente.nome, paciente.sobrenome, paciente.cpf, paciente.sexo, paciente.idade);
+  fprintf(ponteiro_arq, "%d %s %s %s %s %d \n", unidade, paciente.nome, paciente.sobrenome, paciente.cpf, paciente.sexo, paciente.idade);
   fclose(ponteiro_arq);
 
   // INCREMENTANDO O NUMERO DE PACIENTES DE 1 EM 1
@@ -62,11 +65,17 @@ ArrayDePacientes recuperarPacientes() {
   ArrayDePacientes pacientes; // ARRAY DINAMICO DE PACIENTES
   initArrayPaciente(&pacientes); // INICIANDO O ARRAY EM 1
 
+  // RECUPERANDO UNIDADE ATUAL
+  int unidade = recuperarUnidadeAtual();
+
   for(int i = 0; i < quantidade; i++) { // PERCORRENDO DE 0 ATÉ A QUANTIDADE DE PACIENTES
     // LENDO OS DADOS DOS PACIENTES..
     fscanf(ponteiro_arq, "%s %s %s %s %d", &paciente.nome, &paciente.sobrenome, &paciente.cpf, &paciente.sexo, &paciente.idade);
-    // INSERINDO CADA PACIENTE EM UMA POSIÇÃO DO ARRAY DINÂMICO
-    insertArrayPaciente(&pacientes, paciente);
+
+    if(paciente.unidade == unidade) { 
+      // INSERINDO CADA PACIENTE EM UMA POSIÇÃO DO ARRAY DINÂMICO
+      insertArrayPaciente(&pacientes, paciente);
+    }
   }
 
   // LIMPANDO PONTEIRO
@@ -79,6 +88,7 @@ ArrayDePacientes recuperarPacientes() {
 void listarPacientes(ArrayDePacientes array) {
   for(int i = 0; i < array.used; i++) {
     printf("\n--------------------------------------------------");
+    printf("\nUnidade: %d", array.arrayDePacientes[i].unidade);
     printf("\nNome: %s", array.arrayDePacientes[i].nome);
     printf("\nSobrenome: %s", array.arrayDePacientes[i].sobrenome);
     printf("\nCPF: %s", array.arrayDePacientes[i].cpf);
