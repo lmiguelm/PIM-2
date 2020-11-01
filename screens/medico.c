@@ -45,16 +45,22 @@ void cadastrarM() {
 
 void listarMedicos(ArrayDeMedicos array) {
   system("cls");
-  printf("\n\n================ Medicos Cadastrados - Unidade %d ================\n", array.arrayDeMedicos[0].unidade);
-  for(int i = 0; i < array.used; i++) {
-    printf("\n--------------------------------------------------");
-    printf("\nNome: %s", array.arrayDeMedicos[i].nome);
-    printf("\nSobrenome: %s", array.arrayDeMedicos[i].sobrenome);
-    printf("\nEspecialidade: %s", array.arrayDeMedicos[i].especialidade);
-    printf("\nCRM: %d", array.arrayDeMedicos[i].crm);
-    printf("\n--------------------------------------------------\n");
+  if(array.arrayDeMedicos[0].unidade > 3 || array.arrayDeMedicos[0].unidade < 1) {
+    printf("\n\n======================================================\n\n");
+    printf("Nao ha nenhum medico cadastrado!");
+    printf("\n\n======================================================\n\n");
+  } else {
+    printf("\n\n================ Medicos Cadastrados - Unidade %d ================\n", array.arrayDeMedicos[0].unidade);
+    for(int i = 0; i < array.used; i++) {
+      printf("\n--------------------------------------------------");
+      printf("\nNome: %s", array.arrayDeMedicos[i].nome);
+      printf("\nSobrenome: %s", array.arrayDeMedicos[i].sobrenome);
+      printf("\nEspecialidade: %s", array.arrayDeMedicos[i].especialidade);
+      printf("\nCRM: %d", array.arrayDeMedicos[i].crm);
+      printf("\n--------------------------------------------------\n");
+    }
+    printf("\n\n======================================================\n\n");
   }
-  printf("\n\n======================================================\n\n");
   FreeArrayMedico(&array);
 }
 

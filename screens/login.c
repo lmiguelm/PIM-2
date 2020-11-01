@@ -39,12 +39,12 @@ void login() {
   } while (true);
 }
 
-void LoginScreen() {
+void LoginScreen(int unidade) {
   int option;
 
   do {
     system("cls");
-    printf("\n\n================Seja bem-vindo(a) ================\n");
+    printf("\n\n================ Unidade %d ================\n", unidade);
     printf("\n[1] - Entrar no sistema");
     printf("\n[2] - Registre-se");
 

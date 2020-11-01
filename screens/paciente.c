@@ -47,17 +47,23 @@ void cadastrarP() {
 
 void listarPacientes(ArrayDePacientes array) {
   system("cls");
-  printf("\n\n================ Pacientes Cadastrados - Unidade %d ================\n", array.arrayDePacientes[0].unidade);
-  for(int i = 0; i < array.used; i++) {
-    printf("\n--------------------------------------------------");
-    printf("\nNome: %s", array.arrayDePacientes[i].nome);
-    printf("\nSobrenome: %s", array.arrayDePacientes[i].sobrenome);
-    printf("\nCPF: %s", array.arrayDePacientes[i].cpf);
-    printf("\nSexo: %s", array.arrayDePacientes[i].sexo);
-    printf("\nIdade: %d", array.arrayDePacientes[i].idade);
-    printf("\n--------------------------------------------------\n");
+  if(array.arrayDePacientes[0].unidade > 3 || array.arrayDePacientes[0].unidade < 1) {
+    printf("\n\n======================================================\n\n");
+    printf("Nao ha nenhum paciente cadastrado!");
+    printf("\n\n======================================================\n\n");
+  } else {
+    printf("\n\n================ Pacientes Cadastrados - Unidade %d ================\n", array.arrayDePacientes[0].unidade);
+    for(int i = 0; i < array.used; i++) {
+      printf("\n--------------------------------------------------");
+      printf("\nNome: %s", array.arrayDePacientes[i].nome);
+      printf("\nSobrenome: %s", array.arrayDePacientes[i].sobrenome);
+      printf("\nCPF: %s", array.arrayDePacientes[i].cpf);
+      printf("\nSexo: %s", array.arrayDePacientes[i].sexo);
+      printf("\nIdade: %d", array.arrayDePacientes[i].idade);
+      printf("\n--------------------------------------------------\n");
+    }
+    printf("\n\n======================================================\n\n");
   }
-  printf("\n\n======================================================\n\n");
   freeArrayPaciente(&array);
 }
 

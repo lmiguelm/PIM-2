@@ -22,7 +22,7 @@ void main() {
       exit(0);
     } else if (option == 1 || option == 2 || option == 3) {
      if(salvarUnidadeAtual(option) == 0) {
-      LoginScreen();
+      LoginScreen(option);
      } else {
        system("cls");
        printf("Ops! nao foi possivel acessar essa unidade");

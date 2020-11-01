@@ -93,14 +93,20 @@ void cadastrarFed(){
 
 void listarFeedbacks(ArrayDeFeedbacks array) {
   system("cls");
-  printf("\n\n================ Feedbacks Cadastrados - Unidade %d ================\n", array.arrayDeFeedbacks[0].unidade);
-  for(int i = 0; i < array.used; i++) {
-    printf("\n--------------------------------------------------");
-    printf("\nAvaliacao: %d", array.arrayDeFeedbacks[i].avaliacao);
-    printf("\nMensagem: %s", array.arrayDeFeedbacks[i].mensagem);
-    printf("\n--------------------------------------------------\n");
+  if(array.arrayDeFeedbacks[0].unidade > 3 || array.arrayDeFeedbacks[0].unidade < 1) {
+    printf("\n\n======================================================\n\n");
+    printf("Nao ha nenhum feedback cadastrado!");
+    printf("\n\n======================================================\n\n");
+  } else {
+    printf("\n\n================ Feedbacks Cadastrados - Unidade %d ================\n", array.arrayDeFeedbacks[0].unidade);
+    for(int i = 0; i < array.used; i++) {
+        printf("\n--------------------------------------------------");
+        printf("\nAvaliacao: %d", array.arrayDeFeedbacks[i].avaliacao);
+        printf("\nMensagem: %s", array.arrayDeFeedbacks[i].mensagem);
+        printf("\n--------------------------------------------------\n");
+    }
+    printf("\n\n======================================================\n\n");
   }
-  printf("\n\n======================================================\n\n");
   FreeArrayFeedbacks(&array);
 }
 
