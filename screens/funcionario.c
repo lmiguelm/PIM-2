@@ -3,6 +3,14 @@
 #include "../util/bool.h"
 
 void cadastrarF(){
+
+   if(recuperarUnidadeAtual() == 4) {
+    system("cls");
+    printf("\n\n==================================================\n\n");
+    printf("Apenas funcionarios podem cadastrar novos Funcionarios de uma unicdade especifica!");
+    printf("\n\n==================================================\n\n");
+    return;
+  }
   
   Funcionario funcionario;
   

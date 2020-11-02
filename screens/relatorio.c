@@ -16,13 +16,20 @@ void totalizacaoDiariaMensal() {
 int RelatorioScreen() {
   int option;
 
+  if(recuperarUnidadeAtual() != 4) {
+    system("cls");
+    printf("\n\n==================================================\n\n");
+    printf("Ops! voce nao tem permissao para acessar essa funcionalidade!");
+    printf("\n\n==================================================\n\n");
+    return;
+  }
+
   do {
     system("cls");
     printf("\n\n================ Relatorios ================\n");
     printf("\n[1] - Pacientes por unidade");
     printf("\n[2] - Unidade que mais atende");
     printf("\n[3] - Totalizacao diaria e mensal por unidade");
-
     printf("\n\n[0] - Voltar");
     printf("\n\n==================================================\n\n");
 

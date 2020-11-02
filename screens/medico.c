@@ -4,6 +4,14 @@
 
 void cadastrarM() {
   
+   if(recuperarUnidadeAtual() == 4) {
+    system("cls");
+    printf("\n\n==================================================\n\n");
+    printf("Apenas funcionarios podem cadastrar Medicos de uma unidade especifica!");
+    printf("\n\n==================================================\n\n");
+    return;
+  }
+
   Medico medico;
 
   do {

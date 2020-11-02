@@ -4,6 +4,14 @@
 
 void cadastrarP() {
 
+   if(recuperarUnidadeAtual() == 4) {
+    system("cls");
+    printf("\n\n==================================================\n\n");
+    printf("Apenas funcionarios podem cadastrar Pacientes de uma unicdade especifica!");
+    printf("\n\n==================================================\n\n");
+    return;
+  }
+
 	Paciente paciente;
 
   do {

@@ -18,7 +18,7 @@ void DashboardScreen() {
     printf("\n[3] - Medicos");
     printf("\n[4] - Feedbacks");
     printf("\n[5] - Consultas");
-    printf("\n[6] - Relatorios");
+    printf("\n[6] - Relatorios (apenas adminstrador do sistema)");
     printf("\n\n[0] - Sair");
     printf("\n\n==================================================\n\n");
 
