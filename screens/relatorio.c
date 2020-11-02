@@ -2,7 +2,25 @@
 #include "../util/bool.h"
 
 void pacientesPorUnidade() {
-  listarFuncionarios(recuperarFuncionarios());
+  ArrayDePacientes pacientes = recuperarPacientes();
+  int unidade1 = 0, unidade2 = 0, unidade3 = 0;
+
+  for(int i = 0; i < pacientes.used; i++) {
+    if(pacientes.arrayDePacientes[i].unidade == 1) {
+      unidade1++;
+    } else if(pacientes.arrayDePacientes[i].unidade == 2) {
+      unidade2++;
+    } else {
+      unidade3++;
+    }
+  }
+  system("cls");
+  printf("\n\n================ Pacientes por unidade de rede ================\n");
+  printf("\nUnidade 1 possui um total de %d paciente(s)", unidade1);
+  printf("\nUnidade 2 possui um total de %d paciente(s)", unidade2);
+  printf("\nUnidade 3 possui um total de %d paciente(s)", unidade3);
+  printf("\n\n===============================================================\n");
+  
 }
 
 void unidadeQueMaisAtende() {
