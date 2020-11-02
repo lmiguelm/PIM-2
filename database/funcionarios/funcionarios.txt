@@ -1,3 +1,4 @@
+4 Admin Admin Admin admin@gmail.com 12345
 2 Luis Miguel 12345678910 miguel@gmail.com 12345 
 1 Davi Freitas 12345678910 davi@gmail.com 12345 
 3 Joao Rocha 12345678910 joao@gmail.com 12345 

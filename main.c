@@ -12,17 +12,22 @@ void main() {
     printf("\n[1] - Unidade I");
     printf("\n[2] - Unidade II");
     printf("\n[3] - Unidade III");
+    printf("\n[4] - Entrar como adminstrador");
     printf("\n\n[0] - Fechar");
     printf("\n\n==================================================\n\n");
 
-    printf("Escolha sua unidade: ");
+    printf("Digite: ");
     scanf("%d", &option);
 
     if(option == 0) {
       exit(0);
-    } else if (option == 1 || option == 2 || option == 3) {
+    } else if (option == 1 || option == 2 || option == 3 || option == 4) {
      if(salvarUnidadeAtual(option) == 0) {
-      LoginScreen(option);
+       if(option == 4) {
+         login();
+       } else {
+        LoginScreen(option);
+       }
      } else {
        system("cls");
        printf("Ops! nao foi possivel acessar essa unidade");

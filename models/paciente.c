@@ -72,7 +72,7 @@ ArrayDePacientes recuperarPacientes() {
     // LENDO OS DADOS DOS PACIENTES..
     fscanf(ponteiro_arq, "%d %s %s %s %s %d", &paciente.unidade, &paciente.nome, &paciente.sobrenome, &paciente.cpf, &paciente.sexo, &paciente.idade);
 
-    if(paciente.unidade == unidade) { 
+    if(paciente.unidade == unidade || unidade == 4) { 
       // INSERINDO CADA PACIENTE EM UMA POSIÇÃO DO ARRAY DINÂMICO
       insertArrayPaciente(&pacientes, paciente);
     }

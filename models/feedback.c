@@ -73,7 +73,7 @@ ArrayDeFeedbacks recuperarFeedbacks() {
     fscanf(ponteiro_arq, "%d", &feedback.avaliacao);
     fgets(feedback.mensagem, 500, ponteiro_arq);
 
-    if(feedback.unidade == unidade) { 
+    if(feedback.unidade == unidade || unidade == 4) { 
       // INSERINDO CADA FEEDBACK EM UMA POSIÇÃO DO ARRAY DINÂMICO
       insertArrayFeedbacks(&feedbacks,feedback);
     }

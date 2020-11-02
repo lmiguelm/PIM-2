@@ -72,7 +72,7 @@ ArrayDeMedicos recuperarMedicos() {
     // LENDO OS DADOS DOS MEDICOS..
     fscanf(ponteiro_arq, "%d %s %s %s %d", &medico.unidade, &medico.nome, &medico.sobrenome, &medico.especialidade, &medico.crm);
 
-    if(medico.unidade == unidade) { 
+    if(medico.unidade == unidade || unidade == 4) { 
       // INSERINDO CADA MEDICO EM UMA POSIÇÃO DO ARRAY DINÂMICO
       insertArrayMedico(&medicos, medico);
     }

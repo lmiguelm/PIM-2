@@ -72,7 +72,7 @@ ArrayDeFuncionarios recuperarFuncionarios() {
     // LENDO OS DADOS DOS FUNCIONARIOS..
     fscanf(ponteiro_arq, "%d %s %s %s %s %s", &funcionario.unidade, &funcionario.nome, &funcionario.sobrenome, &funcionario.cpf, &funcionario.email, &funcionario.senha);
 
-    if(funcionario.unidade == unidade) {
+    if(funcionario.unidade == unidade || unidade == 4) {
       // INSERINDO CADA FUNCIONARIO EM UMA POSIÇÃO DO ARRAY DINÂMICO
       insertArrayFuncionario(&funcionarios, funcionario);
     }

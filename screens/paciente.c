@@ -52,7 +52,11 @@ void listarPacientes(ArrayDePacientes array) {
     printf("Nao ha nenhum paciente cadastrado!");
     printf("\n\n======================================================\n\n");
   } else {
-    printf("\n\n================ Pacientes Cadastrados - Unidade %d ================\n", array.arrayDePacientes[0].unidade);
+    if(recuperarUnidadeAtual() == 4) {
+      printf("\n\n================ Pacientes Cadastrados ================\n");
+    } else {
+      printf("\n\n================ Pacientes Cadastrados - Unidade %d ================\n", array.arrayDePacientes[0].unidade);
+    }
     for(int i = 0; i < array.used; i++) {
       printf("\n--------------------------------------------------");
       printf("\nNome: %s", array.arrayDePacientes[i].nome);

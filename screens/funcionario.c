@@ -50,16 +50,26 @@ void cadastrarF(){
 
 void listarFuncionarios(ArrayDeFuncionarios array) {
   system("cls");
-  printf("\n\n================ Funcionarios Cadastrados - Unidade %d ================\n", array.arrayDeFuncionarios[0].unidade);
-  for(int i = 0; i < array.used; i++) {
-    printf("\n--------------------------------------------------");
-    printf("\nNome: %s", array.arrayDeFuncionarios[i].nome);
-    printf("\nSobrenome: %s", array.arrayDeFuncionarios[i].sobrenome);
-    printf("\nCPF: %s", array.arrayDeFuncionarios[i].cpf);
-    printf("\nE-mail: %s", array.arrayDeFuncionarios[i].email);
-    printf("\n--------------------------------------------------\n");
+  if(array.arrayDeFuncionarios[0].unidade > 4 || array.arrayDeFuncionarios[0].unidade < 1) {
+    printf("\n\n======================================================\n\n");
+    printf("Nao ha nenhum funcionario cadastrado!");
+    printf("\n\n======================================================\n\n");
+  } else {
+    if(recuperarUnidadeAtual() == 4) { 
+      printf("\n\n================ Funcionarios Cadastrados ================\n");
+    } else {
+      printf("\n\n================ Funcionarios Cadastrados - Unidade %d ================\n", array.arrayDeFuncionarios[0].unidade);
+    }
+    for(int i = 0; i < array.used; i++) {
+      printf("\n--------------------------------------------------");
+      printf("\nNome: %s", array.arrayDeFuncionarios[i].nome);
+      printf("\nSobrenome: %s", array.arrayDeFuncionarios[i].sobrenome);
+      printf("\nCPF: %s", array.arrayDeFuncionarios[i].cpf);
+      printf("\nE-mail: %s", array.arrayDeFuncionarios[i].email);
+      printf("\n--------------------------------------------------\n");
+    }
+    printf("\n\n======================================================\n\n");
   }
-  printf("\n\n======================================================\n\n");
   FreeArrayFuncionario(&array);
 }
 
