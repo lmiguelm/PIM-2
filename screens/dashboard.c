@@ -4,6 +4,7 @@
 #include "./feedback.c"
 #include "./relatorio.c"
 #include "./medico.c"
+#include "./consulta.c"
 #include "../util/bool.h"
 
 void DashboardScreen() {
@@ -34,7 +35,7 @@ void DashboardScreen() {
               break;
       case 4: FeedbackScreen();
               break;
-      case 5: printf("Consultas");
+      case 5: ConsultaScreen();
               break;
       case 6: RelatorioScreen();
               break;

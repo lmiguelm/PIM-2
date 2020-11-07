@@ -1,2 +1,5 @@
 2 Joao Victor 172.124.421-12 Masculino 39 
 1 Joana Santos 623.195.294-85 Feminino 48 
+3 Mariana Anjos 912.124.531-12 Feminino 15 
+1 Thais Rocha 832.135.287-34 Feminino 66 
+2 Fabio Santos 642.236.234-44 Masculino 29 

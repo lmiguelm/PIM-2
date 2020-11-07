@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string.h>
+#include<time.h>
 #include "./screens/login.c"
 #include "./models/unidade.c"
 

@@ -85,3 +85,15 @@ ArrayDePacientes recuperarPacientes() {
   return pacientes;
 }
 
+int verificarCPF(char cpf[100]) {
+  ArrayDePacientes pacientes = recuperarPacientes();
+  int unidade = recuperarUnidadeAtual();
+
+  for(int i = 0; i < pacientes.used; i++) {
+    if(unidade == pacientes.arrayDePacientes[i].unidade && strcmp(pacientes.arrayDePacientes[i].cpf, cpf) == 0) {
+      return 0;
+    }
+  }
+  return 1;
+}
+
