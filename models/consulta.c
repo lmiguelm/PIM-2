@@ -106,3 +106,32 @@ int verificarHorario(int crm, Data data) {
   }
   return 0;
 }
+
+int cancelarConsulta(int id) {
+  ArrayDeConsultas consultas = recuperarConsultas();
+
+  FILE *ponteiro_qtd; // CRIANDO PONTEIRO FILE
+  ponteiro_qtd = fopen("./database/consultas/quantidade.txt", "w"); // APONTANDO PARA O ARQUIVO DE QUANTIDADE DE CONSTULTAS NO MODO DE LEITURA
+ 
+  FILE *ponteiro_arq; // CRIANDO PONTEIRO FILE
+  ponteiro_arq = fopen("./database/consultas/consultas.txt", "w");// APONTANDO PARA O ARQUIVO  MEDICOS NO MODO APPEND, ONDE ADICIONARÁ UMA NOVA LINHA NO CONTEUDO JÁ EXISTENTE
+
+  if(ponteiro_arq == NULL || ponteiro_qtd == NULL) { // VERIFICANDO SE OS PONTEIROS NÃO APONTARAM PARA OS ARQUIVOS
+    printf("Erro na arbertura do arquivo");
+    return 1; // CASO NÃO, RETORNA 1 COMO ERRO
+  } 
+
+  int cont = 0;
+
+  for(int i = 0; i < consultas.used; i++) {
+    if(consultas.arrayDeConsultas[i].id != id) {
+      cont++;
+      fprintf(ponteiro_arq, "%d %d %d %s %f %d %d %d %d %d \n", consultas.arrayDeConsultas[i].id, consultas.arrayDeConsultas[i].unidade, consultas.arrayDeConsultas[i].crm, consultas.arrayDeConsultas[i].cpf, consultas.arrayDeConsultas[i].preco, consultas.arrayDeConsultas[i].data.dia, consultas.arrayDeConsultas[i].data.mes, consultas.arrayDeConsultas[i].data.ano, consultas.arrayDeConsultas[i].data.hora, consultas.arrayDeConsultas[i].data.minutos);
+    }
+  }
+  fprintf(ponteiro_qtd, "%d", cont);
+
+  fclose(ponteiro_qtd);
+  fclose(ponteiro_arq);
+  return 0;
+}

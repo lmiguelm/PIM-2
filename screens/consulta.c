@@ -67,13 +67,39 @@ void cadastrarConsulta() {
   system("cls");
 
   if(salvarConsulta(consulta) == 0) {
-    printf("\n\n==================================================\n");
     printf("Consulta de salva com sucesso!");
     printf("\n\n==================================================\n\n");
     return;
   } else {
     printf("\n\n==================================================\n");
     printf("Ops! Nao conseguimos realizar sua consulta. Tente novamente");
+    printf("\n\n==================================================\n\n");
+    system("pause");
+  }
+}
+
+void cancelarConsultas() {
+  system("cls");
+  ArrayDeConsultas consultas = recuperarConsultas();
+  int id;
+  printf("\n\n======================== Consultas cadastradas ==========================\n");
+  for(int i = 0; i < consultas.used; i++) {
+    printf("\n[%d] - Paciente do CPF: %s, CRM medico %d, data: %d/%d/%d as %d:%d. Total de R$ %.2f", consultas.arrayDeConsultas[i].id, consultas.arrayDeConsultas[i].cpf, consultas.arrayDeConsultas[i].crm, consultas.arrayDeConsultas[i].data.dia, consultas.arrayDeConsultas[i].data.mes, consultas.arrayDeConsultas[i].data.ano, consultas.arrayDeConsultas[i].data.hora, consultas.arrayDeConsultas[i].data.minutos, consultas.arrayDeConsultas[i].preco);
+  }
+  printf("\n\n==========================================================================\n");
+
+  printf("Digite o numero da consulta que deseja cancelar: ");
+  scanf("%d", &id);
+
+  if(cancelarConsulta(id) == 0) {
+    system("cls");
+    printf("\n\n==================================================\n\n");
+    printf("Consulta cancelada com sucesso!");
+    printf("\n\n==================================================\n\n");
+    return;
+  } else {
+    printf("\n\n==================================================\n");
+    printf("Ops! Nao conseguimos cancelar esta consulta. Tente novamente");
     printf("\n\n==================================================\n\n");
     system("pause");
   }
@@ -97,7 +123,7 @@ void ConsultaScreen() {
     switch(option) {
       case 1: cadastrarConsulta();
               break;
-      case 2: printf("ok2");
+      case 2: cancelarConsultas();
               break;
       case 0: return;
               break;
