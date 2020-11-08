@@ -85,3 +85,14 @@ ArrayDeMedicos recuperarMedicos() {
   return medicos;
 }
 
+int verificarCRM(int crm) {
+  ArrayDeMedicos medicos = recuperarMedicos();
+  int unidade = recuperarUnidadeAtual();
+
+  for(int i = 0; i < medicos.used; i++) {
+    if(unidade == medicos.arrayDeMedicos[i].unidade && medicos.arrayDeMedicos[i].crm == crm) {
+      return 0;
+    }
+  }
+  return 1;
+}

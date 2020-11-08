@@ -28,7 +28,54 @@ void unidadeQueMaisAtende() {
 }
 
 void totalizacaoDiariaMensal() {
+  struct tm *data_atual;
+  time_t atual = time(NULL);
+  data_atual = localtime(&atual);
+  data_atual->tm_mon += 1;
+  data_atual->tm_year += 1900;
+  
+  ArrayDeConsultas consultas = recuperarConsultas();
 
+  float diaria1 = 0, diaria2 = 0, diaria3 = 0;
+  float mensal1 = 0, mensal2 = 0, mensal3 = 0;
+
+  for(int i = 0; i < consultas.used; i++) {
+    if(consultas.arrayDeConsultas[i].unidade == 1) {
+      if(consultas.arrayDeConsultas[i].data.mes == data_atual->tm_mon && consultas.arrayDeConsultas[i].data.ano == data_atual->tm_year) {
+        mensal1 += consultas.arrayDeConsultas[i].preco;
+      }
+      if(consultas.arrayDeConsultas[i].data.dia == data_atual->tm_mday && consultas.arrayDeConsultas[i].data.mes == data_atual->tm_mon && consultas.arrayDeConsultas[i].data.ano == data_atual->tm_year) {
+        diaria1 += consultas.arrayDeConsultas[i].preco;
+      }
+    }
+    else if(consultas.arrayDeConsultas[i].unidade == 2) {
+      if(consultas.arrayDeConsultas[i].data.mes == data_atual->tm_mon && consultas.arrayDeConsultas[i].data.ano == data_atual->tm_year) {
+        mensal2 += consultas.arrayDeConsultas[i].preco;
+      }
+      if(consultas.arrayDeConsultas[i].data.dia == data_atual->tm_mday && consultas.arrayDeConsultas[i].data.mes == data_atual->tm_mon && consultas.arrayDeConsultas[i].data.ano == data_atual->tm_year) {
+        diaria2 += consultas.arrayDeConsultas[i].preco;
+      }
+    } else if (consultas.arrayDeConsultas[i].unidade == 3) {
+      if(consultas.arrayDeConsultas[i].data.mes == data_atual->tm_mon && consultas.arrayDeConsultas[i].data.ano == data_atual->tm_year) {
+        mensal3 += consultas.arrayDeConsultas[i].preco;
+      }
+      if(consultas.arrayDeConsultas[i].data.dia == data_atual->tm_mday && consultas.arrayDeConsultas[i].data.mes == data_atual->tm_mon && consultas.arrayDeConsultas[i].data.ano == data_atual->tm_year) {
+        diaria3 += consultas.arrayDeConsultas[i].preco;
+      }
+    }
+  }
+
+  system("cls");
+  printf("\n\n================ Faturamento diario ================\n");
+  printf("\nUnidade 1 teve um faturamento diario de R$ %.2f", diaria1);
+  printf("\nUnidade 2 teve um faturamento diario de R$ %.2f", diaria2);
+  printf("\nUnidade 3 teve um faturamento diario de R$ %.2f", diaria3);
+  printf("\n\n======================================================\n");
+  printf("\n\n================ Faturamento mensal ================\n");
+  printf("\nUnidade 1 teve um faturamento mensal de R$ %.2f", mensal1);
+  printf("\nUnidade 2 teve um faturamento mensal de R$ %.2f", mensal2);
+  printf("\nUnidade 3 teve um faturamento mensal de R$ %.2f", mensal3);
+  printf("\n\n======================================================\n");
 }
 
 int RelatorioScreen() {

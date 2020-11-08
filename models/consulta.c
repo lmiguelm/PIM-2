@@ -4,7 +4,7 @@ void initArrayConsulta(ArrayDeConsultas *a) {
   a->size = 1; // SETANDO O TAMANHO ALOCADO
 }
 
-void inserArrayConsulta(ArrayDeConsultas *a, Consulta element) {
+void insertArrayConsulta(ArrayDeConsultas *a, Consulta element) {
   if (a->used == a->size) { // VERIFICA SE O TAMANHO QUE ESTA SENDO USADO É IGUAL AO TAMANHO ALOCADO
     a->size *= 2;  // DUPLICANDO O TAMANHO
     a->arrayDeConsultas = realloc(a->arrayDeConsultas, a->size * sizeof(Consulta)); // REALOCANDO O TAMANHO PARA O DOBRO DO ANTERIOR
@@ -76,7 +76,7 @@ ArrayDeConsultas recuperarConsultas() {
 
     if(consulta.unidade == unidade || unidade == 4) {
       // INSERINDO CADA CONSULTA EM UMA POSIÇÃO DO ARRAY DINÂMICO
-      inserArrayConsulta(&consultas, consulta);
+      insertArrayConsulta(&consultas, consulta);
     }
   }
 

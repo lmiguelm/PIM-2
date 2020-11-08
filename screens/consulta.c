@@ -1,24 +1,33 @@
 #include "../headers/consulta.h"
-#include "../util/bool.h"
 #include "../models/consulta.c"
+#include "../util/bool.h"
 
 void cadastrarConsulta() {
   system("cls");
 
   Consulta consulta;
-  ArrayDeMedicos medicos = recuperarMedicos();
-
-  printf("\n\n==================== Escolha um medico ===================\n");
-  for(int i = 0; i < medicos.used; i++) {
-    printf("\n[%d] - %s %s, %s", medicos.arrayDeMedicos[i].crm, medicos.arrayDeMedicos[i].nome,  medicos.arrayDeMedicos[i].sobrenome, medicos.arrayDeMedicos[i].especialidade);
-  }
-  printf("\n\n==================================================\n\n");
-  printf("Escolha um medico: ");
-  fflush(stdin);
-  scanf("%d", &consulta.crm);
-  system("cls");
-
   int flag = true;
+  
+  do {
+    printf("Informe a CRM do medico: ");
+    fflush(stdin);
+    scanf("%d", &consulta.crm);
+    system("cls");
+
+    if(verificarCRM(consulta.crm) == 1) {
+      printf("\n\n========================================================================\n\n");
+      printf("\nCRM nao encontrado!");
+      printf("\n\n========================================================================\n\n");
+      system("pause");
+      system("cls");
+    } else {
+     flag = false;
+    }
+
+  } while(flag);
+
+  
+  flag = true;
   do {
     printf("Informe a data da consulta(dd/mm/aaaa hh:mm): ");
     scanf("%d/%d/%d %d:%d", &consulta.data.dia, &consulta.data.mes, &consulta.data.ano, &consulta.data.hora, &consulta.data.minutos);

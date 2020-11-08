@@ -1,10 +1,10 @@
 #include "../headers/dashboard.h"
 #include "./paciente.c"
+#include "./consulta.c"
 #include "./funcionario.c"
 #include "./feedback.c"
 #include "./relatorio.c"
 #include "./medico.c"
-#include "./consulta.c"
 #include "../util/bool.h"
 
 void DashboardScreen() {
