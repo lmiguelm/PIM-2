@@ -3,3 +3,6 @@
 3 Mariana Anjos 912.124.531-12 Feminino 15 
 1 Thais Rocha 832.135.287-34 Feminino 66 
 2 Fabio Santos 642.236.234-44 Masculino 29 
+1 Pedro Rocha 833.135.287-34 Masculino 60
+1 Carlos Rocha 888.135.287-34 Masculino 30
+1 Bruno Rocha 999.135.287-34 Masculino 34

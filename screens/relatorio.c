@@ -24,7 +24,26 @@ void pacientesPorUnidade() {
 }
 
 void unidadeQueMaisAtende() {
-  printf("Unidade que mais atende");
+  ArrayDeConsultas consultas = recuperarConsultas();
+
+  int unidade1 = 0, unidade2 = 0, unidade3 = 0;
+
+  for(int i = 0; i < consultas.used; i++){
+    if(consultas.arrayDeConsultas[i].unidade == 1){
+      unidade1++;
+    }else if(consultas.arrayDeConsultas[i].unidade == 2){
+      unidade2++;
+    }else{
+      unidade3++;
+    }
+  }
+
+  system("cls");
+  printf("\n\n================ Unidade que mais atende ================\n");
+  printf("\nUnidade 1 atendeu um total de %d paciente(s)", unidade1);
+  printf("\nUnidade 2 atendeu um total de %d paciente(s)", unidade2);
+  printf("\nUnidade 3 atendeu um total de %d paciente(s)", unidade3);
+  printf("\n\n===============================================================\n");
 }
 
 void totalizacaoDiariaMensal() {
