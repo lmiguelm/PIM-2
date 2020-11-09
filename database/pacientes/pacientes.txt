@@ -6,3 +6,9 @@
 1 Pedro Rocha 833.135.287-34 Masculino 60
 1 Carlos Rocha 888.135.287-34 Masculino 30
 1 Bruno Rocha 999.135.287-34 Masculino 34
+3 Joselino Jackson 111.111.111-11 Masculino 89 
+3 Marcia Oliveira 222.222.222-22 Feminino 33 
+3 Armando Santos 333.333.333-33 Masculino 90 
+3 Pablo Rocha 444.444.444-44 Masculino 12 
+2 Fabiana Marques 555.555.555-55 Feminino 40 
+2 Adilson Rogerio 666.666.666-66 Masculino 49 

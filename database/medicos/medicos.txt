@@ -1,3 +1,8 @@
 2 Andre Marques Ortopedista 12345 
 2 Juliana Santos Pediatra 82712 
 1 Jose Silva Pediatra 54321 
+3 Joselino Ferreira Oftalmologista 99999 
+3 Andreia Benitez Pediatra 88888 
+3 Rosana Nascimento Dermatologista 77777 
+2 Sandra Silva Cardiologista 0 
+2 Pedro Rocha Pediatra 44444 
