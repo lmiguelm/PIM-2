@@ -81,6 +81,14 @@ void cadastrarConsulta() {
 void cancelarConsultas() {
   system("cls");
   ArrayDeConsultas consultas = recuperarConsultas();
+
+  if(consultas.used == 0) {
+    printf("\n\n==========================================================================\n");
+    printf("Nenhuma consulta marcarda");
+    printf("\n\n==========================================================================\n");
+    return;
+  }
+
   int id;
   printf("\n\n======================== Consultas cadastradas ==========================\n");
   for(int i = 0; i < consultas.used; i++) {
