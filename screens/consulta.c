@@ -2,75 +2,88 @@
 #include "../models/consulta.c"
 #include "../util/bool.h"
 
-void cadastrarConsulta() {
+void cadastrarConsulta()
+{
   system("cls");
-
   Consulta consulta;
   int flag = true;
-  
-  do {
+
+  do
+  {
     printf("Informe a CRM do medico: ");
     fflush(stdin);
     scanf("%d", &consulta.crm);
-    system("cls");
 
-    if(verificarCRM(consulta.crm) == 1) {
+    if (verificarCRM(consulta.crm) == 1)
+    {
       printf("\n\n========================================================================\n\n");
       printf("\nCRM nao encontrado!");
       printf("\n\n========================================================================\n\n");
       system("pause");
       system("cls");
-    } else {
-     flag = false;
+    }
+    else
+    {
+      flag = false;
     }
 
-  } while(flag);
+  } while (flag);
 
-  
   flag = true;
-  do {
+  do
+  {
     printf("Informe a data da consulta(dd/mm/aaaa hh:mm): ");
     scanf("%d/%d/%d %d:%d", &consulta.data.dia, &consulta.data.mes, &consulta.data.ano, &consulta.data.hora, &consulta.data.minutos);
     fflush(stdin);
 
-    if(verificarHorario(consulta.crm, consulta.data) == 1) {
+    if (verificarHorario(consulta.crm, consulta.data) == 1)
+    {
       printf("\n\n========================================================================\n\n");
       printf("\nHorario indisponivel");
       printf("\n\n========================================================================\n\n");
       system("pause");
       system("cls");
-    } else {
-     flag = false;
+    }
+    else
+    {
+      flag = false;
     }
   } while (flag);
 
   flag = true;
-  do {
-    printf("Informe o CPF do paciente: ");
+  do
+  {
+    printf("Informe o CPF do paciente (xxx.xxx.xxx-xx): ");
     fflush(stdin);
     gets(consulta.cpf);
 
-    if(verificarCPF(consulta.cpf) == 1) {
+    if (verificarCPF(consulta.cpf) == 1)
+    {
       printf("\n\n========================================================================\n\n");
       printf("\nCPF nao encontrado!");
       printf("\n\n========================================================================\n\n");
       system("pause");
       system("cls");
-    } else {
-     flag = false;
     }
-  } while(flag);
+    else
+    {
+      flag = false;
+    }
+  } while (flag);
 
   printf("Informe o Preco: ");
   fflush(stdin);
   scanf("%f", &consulta.preco);
   system("cls");
 
-  if(salvarConsulta(consulta) == 0) {
+  if (salvarConsulta(consulta) == 0)
+  {
     printf("Consulta de salva com sucesso!");
     printf("\n\n==================================================\n\n");
     return;
-  } else {
+  }
+  else
+  {
     printf("\n\n==================================================\n");
     printf("Ops! Nao conseguimos realizar sua consulta. Tente novamente");
     printf("\n\n==================================================\n\n");
@@ -78,11 +91,19 @@ void cadastrarConsulta() {
   }
 }
 
-void cancelarConsultas() {
+void cancelarConsultas()
+{
   system("cls");
   ArrayDeConsultas consultas = recuperarConsultas();
 
-  if(consultas.used == 0) {
+  time_t atual = time(NULL);
+  struct tm tm = *localtime(&atual);
+
+  tm.tm_mon += 1;
+  tm.tm_year += 1900;
+
+  if (consultas.used == 0)
+  {
     printf("\n\n==========================================================================\n");
     printf("Nenhuma consulta marcarda");
     printf("\n\n==========================================================================\n");
@@ -91,21 +112,43 @@ void cancelarConsultas() {
 
   int id;
   printf("\n\n======================== Consultas cadastradas ==========================\n");
-  for(int i = 0; i < consultas.used; i++) {
-    printf("\n[%d] - Paciente do CPF: %s, CRM medico %d, data: %d/%d/%d as %d:%d. Total de R$ %.2f", consultas.arrayDeConsultas[i].id, consultas.arrayDeConsultas[i].cpf, consultas.arrayDeConsultas[i].crm, consultas.arrayDeConsultas[i].data.dia, consultas.arrayDeConsultas[i].data.mes, consultas.arrayDeConsultas[i].data.ano, consultas.arrayDeConsultas[i].data.hora, consultas.arrayDeConsultas[i].data.minutos, consultas.arrayDeConsultas[i].preco);
+  for (int i = 0; i < consultas.used; i++)
+  {
+    if (tm.tm_year <= consultas.arrayDeConsultas[i].data.ano)
+    {
+      if (tm.tm_mon < consultas.arrayDeConsultas[i].data.mes)
+      {
+        printf("\n[%d] - Paciente do CPF: %s, CRM medico %d, data: %d/%d/%d as %d:%d. Total de R$ %.2f", consultas.arrayDeConsultas[i].id, consultas.arrayDeConsultas[i].cpf, consultas.arrayDeConsultas[i].crm, consultas.arrayDeConsultas[i].data.dia, consultas.arrayDeConsultas[i].data.mes, consultas.arrayDeConsultas[i].data.ano, consultas.arrayDeConsultas[i].data.hora, consultas.arrayDeConsultas[i].data.minutos, consultas.arrayDeConsultas[i].preco);
+      }
+      else if (tm.tm_mon == consultas.arrayDeConsultas[i].data.mes)
+      {
+        if (tm.tm_mday <= consultas.arrayDeConsultas[i].data.dia)
+        {
+          printf("\n[%d] - Paciente do CPF: %s, CRM medico %d, data: %d/%d/%d as %d:%d. Total de R$ %.2f", consultas.arrayDeConsultas[i].id, consultas.arrayDeConsultas[i].cpf, consultas.arrayDeConsultas[i].crm, consultas.arrayDeConsultas[i].data.dia, consultas.arrayDeConsultas[i].data.mes, consultas.arrayDeConsultas[i].data.ano, consultas.arrayDeConsultas[i].data.hora, consultas.arrayDeConsultas[i].data.minutos, consultas.arrayDeConsultas[i].preco);
+        }
+      }
+    }
   }
   printf("\n\n==========================================================================\n");
 
-  printf("Digite o numero da consulta que deseja cancelar: ");
+  printf("Digite o numero da consulta que deseja cancelar ou -1 para voltar: ");
   scanf("%d", &id);
 
-  if(cancelarConsulta(id) == 0) {
+  if (id < 0)
+  {
+    return;
+  }
+
+  if (cancelarConsulta(id) == 0)
+  {
     system("cls");
     printf("\n\n==================================================\n\n");
     printf("Consulta cancelada com sucesso!");
     printf("\n\n==================================================\n\n");
     return;
-  } else {
+  }
+  else
+  {
     printf("\n\n==================================================\n");
     printf("Ops! Nao conseguimos cancelar esta consulta. Tente novamente");
     printf("\n\n==================================================\n\n");
@@ -113,10 +156,12 @@ void cancelarConsultas() {
   }
 }
 
-void ConsultaScreen() {
+void ConsultaScreen()
+{
   int option;
 
-  do {  
+  do
+  {
     system("cls");
     printf("\n\n==================== Consultas ===================\n");
     printf("\n[1] - Nova Consulta");
@@ -128,14 +173,19 @@ void ConsultaScreen() {
     fflush(stdin);
     scanf("%d", &option);
 
-    switch(option) {
-      case 1: cadastrarConsulta();
-              break;
-      case 2: cancelarConsultas();
-              break;
-      case 0: return;
-              break;
-      default: printf("Opcao invalida!");
+    switch (option)
+    {
+    case 1:
+      cadastrarConsulta();
+      break;
+    case 2:
+      cancelarConsultas();
+      break;
+    case 0:
+      return;
+      break;
+    default:
+      printf("Opcao invalida!");
     }
     system("pause");
   } while (true);

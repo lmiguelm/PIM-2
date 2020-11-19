@@ -1,4 +1,5 @@
-typedef struct {
+typedef struct
+{
   int unidade;
   char nome[100];
   char sobrenome[100];
@@ -6,7 +7,8 @@ typedef struct {
   int crm;
 } Medico;
 
-typedef struct {
+typedef struct
+{
   Medico *arrayDeMedicos;
   size_t used;
   size_t size;
