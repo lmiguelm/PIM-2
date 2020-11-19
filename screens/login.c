@@ -2,13 +2,11 @@
 #include "./dashboard.c"
 #include "../util/bool.h"
 
-void login()
-{
+void login() {
   char email[100], senha[100];
   int option;
 
-  do
-  {
+  do {
     system("cls");
     printf("\n\n================ Entrar ================\n");
     printf("Informe seu e-mail: ");
@@ -20,8 +18,8 @@ void login()
     gets(senha);
     printf("\n\n==================================================\n");
 
-    if (validarLogin(email, senha) != 0)
-    { // senha ou email invalido
+
+    if(validarLogin(email, senha) != 0) { // senha ou email invalido
       system("cls");
       printf("\n\n===================== Dados incorretos =============================\n");
       printf("\n[1] - Tentar novamente");
@@ -30,26 +28,21 @@ void login()
       printf("\nDigite uma opcao: ");
       scanf("%d", &option);
 
-      if (option == 0)
-      {
+      if(option == 0) {
         return;
       }
-    }
-    else
-    {
+    } else {
       DashboardScreen(); // dashboard
       return;
     }
-
+   
   } while (true);
 }
 
-void LoginScreen(int unidade)
-{
+void LoginScreen(int unidade) {
   int option;
 
-  do
-  {
+  do {
     system("cls");
     printf("\n\n================ Unidade %d ================\n", unidade);
     printf("\n[1] - Entrar no sistema");
@@ -61,19 +54,14 @@ void LoginScreen(int unidade)
     printf("\nDigite: ");
     scanf("%d", &option);
 
-    switch (option)
-    {
-    case 0:
-      return;
-      break;
-    case 1:
-      login();
-      break;
-    case 2:
-      cadastrarF();
-      break;
-    default:
-      printf("\nOpcao invalida!");
+    switch (option) {
+      case 0: return;
+              break;
+      case 1: login();
+              break;
+      case 2: cadastrarF();
+              break;
+      default: printf("\nOpcao invalida!");
     }
 
     printf("\n\n");
@@ -81,3 +69,4 @@ void LoginScreen(int unidade)
 
   } while (option != 0);
 }
+

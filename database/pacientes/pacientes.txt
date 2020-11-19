@@ -12,12 +12,3 @@
 3 Pablo Rocha 444.444.444-44 Masculino 12 
 2 Fabiana Marques 555.555.555-55 Feminino 40 
 2 Adilson Rogerio 666.666.666-66 Masculino 49 
-1 Leticia Batista 123.123.123-12 Feminino 19 
-2 Luis Felipe 123.654.456-77 Masculino 15 
-2 Felipe Jesus 777.777.777-77 Masculino 18 
-3 Julia Santos 854.789.599-88 Feminino 18 
-3 Luciana Benitez 235.795.759-12 Feminino 39 
-3 Edison Marcelo 592.886.884-77 Masculino 50 
-2 Ana Julia 486.777.598-75 Feminino 24 
-2 Ana Beatriz 598.896.355-11 Feminino 14 
-1 teste teste 123.123.122-11 Masculino 19 

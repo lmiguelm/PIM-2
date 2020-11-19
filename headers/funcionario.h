@@ -11,5 +11,3 @@ void insertArrayFuncionario(ArrayDeFuncionarios *a, Funcionario element);
 void FreeArrayFuncionario(ArrayDeFuncionarios *a);
 
 int validarLogin(char email[100], char senha[100]);
-int emailExistente(char email[100]);
-int cpfExistenteFuncionario(char cpf[14]);

@@ -1,5 +1,4 @@
-typedef struct
-{
+typedef struct {
   int dia;
   int mes;
   int ano;
@@ -7,8 +6,7 @@ typedef struct
   int minutos;
 } Data;
 
-typedef struct
-{
+typedef struct {
   int id;
   int unidade;
   int crm;
@@ -17,8 +15,7 @@ typedef struct
   Data data;
 } Consulta;
 
-typedef struct
-{
+typedef struct {
   Consulta *arrayDeConsultas;
   size_t used;
   size_t size;
