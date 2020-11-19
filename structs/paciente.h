@@ -1,13 +1,15 @@
-typedef struct {
+typedef struct
+{
   int unidade;
   char nome[100];
   char sobrenome[100];
   char sexo[20];
   int idade;
-  char cpf[100];
+  char cpf[20];
 } Paciente;
 
-typedef struct {
+typedef struct
+{
   Paciente *arrayDePacientes;
   size_t used;
   size_t size;
