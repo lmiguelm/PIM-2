@@ -140,6 +140,82 @@ void totalizacaoDiariaMensal()
   printf("\n\n======================================================\n");
 }
 
+void feedbacksPorUnidade()
+{
+  ArrayDeFeedbacks feedbacks = recuperarFeedbacks();
+  int otimo1 = 0, otimo2 = 0, otimo3 = 0;
+  int medio1 = 0, medio2 = 0, medio3 = 0;
+  int ruim1 = 0, ruim2 = 0, ruim3 = 0;
+
+  for (int i = 0; i < feedbacks.used; i++)
+  {
+    if (feedbacks.arrayDeFeedbacks[i].unidade == 1)
+    {
+      if (feedbacks.arrayDeFeedbacks[i].avaliacao == 1)
+      {
+        otimo1++;
+      }
+      else if (feedbacks.arrayDeFeedbacks[i].avaliacao == 2)
+      {
+        medio1++;
+      }
+      else if (feedbacks.arrayDeFeedbacks[i].avaliacao == 3)
+      {
+        ruim1++;
+      }
+    }
+    else if (feedbacks.arrayDeFeedbacks[i].unidade == 2)
+    {
+      if (feedbacks.arrayDeFeedbacks[i].avaliacao == 1)
+      {
+        otimo2++;
+      }
+      else if (feedbacks.arrayDeFeedbacks[i].avaliacao == 2)
+      {
+        medio2++;
+      }
+      else if (feedbacks.arrayDeFeedbacks[i].avaliacao == 3)
+      {
+        ruim2++;
+      }
+    }
+    else if (feedbacks.arrayDeFeedbacks[i].unidade == 3)
+    {
+      if (feedbacks.arrayDeFeedbacks[i].avaliacao == 1)
+      {
+        otimo3++;
+      }
+      else if (feedbacks.arrayDeFeedbacks[i].avaliacao == 2)
+      {
+        medio3++;
+      }
+      else if (feedbacks.arrayDeFeedbacks[i].avaliacao == 3)
+      {
+        ruim3++;
+      }
+    }
+  }
+
+  system("cls");
+  printf("\n\n================ Feedbacks por unidade de rede ================\n");
+  printf("\n\n----------------------------- Unidade 1 ------------------------------");
+  printf("\n%d pacientes acharam um otimo atendimento", otimo1);
+  printf("\n%d pacientes acharam o atendimento medio", medio1);
+  printf("\n%d pacientes nao gostaram de seus atendimentos", ruim1);
+  printf("\n----------------------------------------------------------------------\n\n");
+  printf("\n\n----------------------------- Unidade 2 ------------------------------");
+  printf("\n%d pacientes acharam um otimo atendimento", otimo2);
+  printf("\n%d pacientes acharam o atendimento medio", medio2);
+  printf("\n%d pacientes nao gostaram de seus atendimentos", ruim2);
+  printf("\n----------------------------------------------------------------------\n\n");
+  printf("\n\n----------------------------- Unidade 3 ------------------------------");
+  printf("\n%d pacientes acharam um otimo atendimento", otimo3);
+  printf("\n%d pacientes acharam o atendimento medio", medio3);
+  printf("\n%d pacientes nao gostaram de seus atendimentos", ruim3);
+  printf("\n----------------------------------------------------------------------\n\n");
+  printf("\n\n======================================================\n");
+}
+
 int RelatorioScreen()
 {
   int option;
@@ -160,6 +236,7 @@ int RelatorioScreen()
     printf("\n[1] - Pacientes por unidade");
     printf("\n[2] - Unidade que mais atende");
     printf("\n[3] - Totalizacao diaria e mensal por unidade");
+    printf("\n[4] - Feedbacks por unidade");
     printf("\n\n[0] - Voltar");
     printf("\n\n==================================================\n\n");
 
@@ -179,6 +256,9 @@ int RelatorioScreen()
       break;
     case 3:
       totalizacaoDiariaMensal();
+      break;
+    case 4:
+      feedbacksPorUnidade();
       break;
     default:
       printf("Opcao invalida!!");
