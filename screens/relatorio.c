@@ -5,7 +5,6 @@ void pacientesPorUnidade()
 {
   ArrayDePacientes pacientes = recuperarPacientes();
   int unidade1 = 0, unidade2 = 0, unidade3 = 0, soma = 0;
-  float media = 0;
 
   for (int i = 0; i < pacientes.used; i++)
   {
@@ -28,7 +27,7 @@ void pacientesPorUnidade()
   printf("\nUnidade 1 possui um total de %d paciente(s)", unidade1);
   printf("\nUnidade 2 possui um total de %d paciente(s)", unidade2);
   printf("\nUnidade 3 possui um total de %d paciente(s)", unidade3);
-  printf("\n\nMedia de pacientes por unidade: %.2f paciente(s)", media);
+  printf("\n\nMedia de pacientes por unidade: %.2f paciente(s)", (float)soma / 3);
   printf("\n\n===============================================================\n");
 }
 
