@@ -59,3 +59,6 @@
 
 
 3. **Para compilar o código, basta entrar no arquivo Main.c e precionar a tecla "F6".**
+
+# *Rodar o código utilizando o CodeBlocks*
+* Abra o CodeBlocks, em seguida pressione "Ctrl + o" e abra o arquivo "Main.c" da raiz do projeto, após isso, compile o código (F9).
