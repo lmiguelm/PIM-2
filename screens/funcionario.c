@@ -64,6 +64,7 @@ void cadastrarF()
 
 void listarFuncionarios(ArrayDeFuncionarios array)
 {
+  int i;
   system("cls");
   if (array.arrayDeFuncionarios[0].unidade > 4 || array.arrayDeFuncionarios[0].unidade < 1)
   {
@@ -81,7 +82,7 @@ void listarFuncionarios(ArrayDeFuncionarios array)
     {
       printf("\n\n================ Funcionarios Cadastrados - Unidade %d ================\n", array.arrayDeFuncionarios[0].unidade);
     }
-    for (int i = 0; i < array.used; i++)
+    for (i = 0; i < array.used; i++)
     {
       printf("\n--------------------------------------------------");
       printf("\nNome: %s", array.arrayDeFuncionarios[i].nome);

@@ -2,9 +2,11 @@
 #include "../models/medico.c"
 #include "../util/bool.h"
 
-void cadastrarM() {
-  
-   if(recuperarUnidadeAtual() == 4) {
+void cadastrarM()
+{
+
+  if (recuperarUnidadeAtual() == 4)
+  {
     system("cls");
     printf("\n\n==================================================\n\n");
     printf("Apenas funcionarios podem cadastrar Medicos de uma unidade especifica!");
@@ -14,7 +16,8 @@ void cadastrarM() {
 
   Medico medico;
 
-  do {
+  do
+  {
     system("cls");
     printf("\n\n================ Cadastro de Medico ================\n");
 
@@ -35,35 +38,47 @@ void cadastrarM() {
     scanf("%d", &medico.crm);
     printf("\n\n==================================================\n");
 
-    if(salvarMedico(medico) == 0) {
+    if (salvarMedico(medico) == 0)
+    {
       system("cls");
       printf("\n\n==================================================\n");
       printf("%s cadastrado com sucesso!", medico.nome);
       printf("\n\n==================================================\n\n");
       return;
-    } else {
+    }
+    else
+    {
       system("cls");
       printf("\n\n==================================================\n");
       printf("Ops! Nao conseguimos realizar seu cadastro. Tente novamente");
       printf("\n\n==================================================\n\n");
       system("pause");
     }
-  } while(true);
+  } while (true);
 }
 
-void listarMedicos(ArrayDeMedicos array) {
+void listarMedicos(ArrayDeMedicos array)
+{
+  int i;
   system("cls");
-  if(array.arrayDeMedicos[0].unidade > 3 || array.arrayDeMedicos[0].unidade < 1) {
+  if (array.arrayDeMedicos[0].unidade > 3 || array.arrayDeMedicos[0].unidade < 1)
+  {
     printf("\n\n======================================================\n\n");
     printf("Nao ha nenhum medico cadastrado!");
     printf("\n\n======================================================\n\n");
-  } else {
-    if(recuperarUnidadeAtual() == 4) {
+  }
+  else
+  {
+    if (recuperarUnidadeAtual() == 4)
+    {
       printf("\n\n================ Medicos Cadastrados ================\n");
-    } else {
+    }
+    else
+    {
       printf("\n\n================ Medicos Cadastrados - Unidade %d ================\n", array.arrayDeMedicos[0].unidade);
     }
-    for(int i = 0; i < array.used; i++) {
+    for (i = 0; i < array.used; i++)
+    {
       printf("\n--------------------------------------------------");
       printf("\nNome: %s", array.arrayDeMedicos[i].nome);
       printf("\nSobrenome: %s", array.arrayDeMedicos[i].sobrenome);
@@ -76,10 +91,12 @@ void listarMedicos(ArrayDeMedicos array) {
   FreeArrayMedico(&array);
 }
 
-void MedicoScreen() {
+void MedicoScreen()
+{
   int option;
 
-  do {
+  do
+  {
     system("cls");
     printf("\n\n================ Medico ================\n");
     printf("\n[1] - Cadastrar Medico");
@@ -90,17 +107,22 @@ void MedicoScreen() {
     printf("Digite: ");
     scanf("%d", &option);
 
-    switch(option) {
-      case 1: cadastrarM();
-              break;
-      case 2:   listarMedicos(recuperarMedicos());
-              break;
-      case 0: return;
-              break;
-      default: printf("Opcao invalida");
+    switch (option)
+    {
+    case 1:
+      cadastrarM();
+      break;
+    case 2:
+      listarMedicos(recuperarMedicos());
+      break;
+    case 0:
+      return;
+      break;
+    default:
+      printf("Opcao invalida");
     }
     printf("\n\n");
     system("pause");
 
-  } while(true);
+  } while (true);
 }

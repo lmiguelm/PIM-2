@@ -3,10 +3,11 @@
 
 void pacientesPorUnidade()
 {
+  int i;
   ArrayDePacientes pacientes = recuperarPacientes();
   int unidade1 = 0, unidade2 = 0, unidade3 = 0, soma = 0;
 
-  for (int i = 0; i < pacientes.used; i++)
+  for (i = 0; i < pacientes.used; i++)
   {
     if (pacientes.arrayDePacientes[i].unidade == 1)
     {
@@ -33,11 +34,13 @@ void pacientesPorUnidade()
 
 void unidadeQueMaisAtende()
 {
+
+  int i;
   ArrayDeConsultas consultas = recuperarConsultas();
 
   int unidade1 = 0, unidade2 = 0, unidade3 = 0;
 
-  for (int i = 0; i < consultas.used; i++)
+  for (i = 0; i < consultas.used; i++)
   {
     if (consultas.arrayDeConsultas[i].unidade == 1)
     {
@@ -79,6 +82,7 @@ void unidadeQueMaisAtende()
 
 void totalizacaoDiariaMensal()
 {
+  int i;
   struct tm *data_atual;
   time_t atual = time(NULL);
   data_atual = localtime(&atual);
@@ -90,7 +94,7 @@ void totalizacaoDiariaMensal()
   float diaria1 = 0, diaria2 = 0, diaria3 = 0;
   float mensal1 = 0, mensal2 = 0, mensal3 = 0;
 
-  for (int i = 0; i < consultas.used; i++)
+  for (i = 0; i < consultas.used; i++)
   {
     if (consultas.arrayDeConsultas[i].unidade == 1)
     {
@@ -142,12 +146,13 @@ void totalizacaoDiariaMensal()
 
 void feedbacksPorUnidade()
 {
+  int i;
   ArrayDeFeedbacks feedbacks = recuperarFeedbacks();
   int otimo1 = 0, otimo2 = 0, otimo3 = 0;
   int medio1 = 0, medio2 = 0, medio3 = 0;
   int ruim1 = 0, ruim2 = 0, ruim3 = 0;
 
-  for (int i = 0; i < feedbacks.used; i++)
+  for (i = 0; i < feedbacks.used; i++)
   {
     if (feedbacks.arrayDeFeedbacks[i].unidade == 1)
     {

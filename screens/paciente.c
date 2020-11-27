@@ -61,6 +61,7 @@ void cadastrarP()
 
 void listarPacientes(ArrayDePacientes array)
 {
+  int i;
   system("cls");
   if (array.arrayDePacientes[0].unidade > 3 || array.arrayDePacientes[0].unidade < 1)
   {
@@ -78,7 +79,7 @@ void listarPacientes(ArrayDePacientes array)
     {
       printf("\n\n================ Pacientes Cadastrados - Unidade %d ================\n", array.arrayDePacientes[0].unidade);
     }
-    for (int i = 0; i < array.used; i++)
+    for (i = 0; i < array.used; i++)
     {
       printf("\n--------------------------------------------------");
       printf("\nNome: %s", array.arrayDePacientes[i].nome);

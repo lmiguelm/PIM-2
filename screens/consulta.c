@@ -114,7 +114,8 @@ void cancelarConsultas()
 
   int id;
   printf("\n\n======================== Consultas cadastradas ==========================\n");
-  for (int i = 0; i < consultas.used; i++)
+  int i = 0;
+  for (i = 0; i < consultas.used; i++)
   {
     if (tm.tm_year <= consultas.arrayDeConsultas[i].data.ano)
     {

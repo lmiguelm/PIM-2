@@ -74,8 +74,8 @@ ArrayDePacientes recuperarPacientes()
 
   // RECUPERANDO UNIDADE ATUAL
   int unidade = recuperarUnidadeAtual();
-
-  for (int i = 0; i < quantidade; i++)
+  int i;
+  for (i = 0; i < quantidade; i++)
   { // PERCORRENDO DE 0 ATÉ A QUANTIDADE DE PACIENTES
     // LENDO OS DADOS DOS PACIENTES..
     fscanf(ponteiro_arq, "%d %s %s %s %s %d", &paciente.unidade, &paciente.nome, &paciente.sobrenome, &paciente.cpf, &paciente.sexo, &paciente.idade);
@@ -98,8 +98,8 @@ int verificarCPF(char cpf[20])
 {
   ArrayDePacientes pacientes = recuperarPacientes();
   int unidade = recuperarUnidadeAtual();
-
-  for (int i = 0; i < pacientes.used; i++)
+  int i;
+  for (i = 0; i < pacientes.used; i++)
   {
     if (unidade == pacientes.arrayDePacientes[i].unidade && strcmp(pacientes.arrayDePacientes[i].cpf, cpf) == 0)
     {
