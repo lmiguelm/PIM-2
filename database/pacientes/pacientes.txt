@@ -20,3 +20,4 @@
 3 Edison Marcelo 592.886.884-77 Masculino 50 
 2 Ana Julia 486.777.598-75 Feminino 24 
 2 Ana Beatriz 598.896.355-11 Feminino 14 
+2 Josevaldo Benedetti 111.222.111-22 Masculino 89 
